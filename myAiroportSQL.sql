@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS gate (
  CREATE TABLE IF NOT EXISTS plane (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     model VARCHAR(45) NOT NULL,
-    taiNumber INT NOT NULL
+    tailNumber INT NOT NULL
 );   
 
 CREATE TABLE IF NOT EXISTS flight (
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS baggage (
 );
 
 ALTER TABLE country 
-ADD shortname varchar(10) NOT NULL,
+ADD shortname varchar(10) NULL,
 ADD place int(10) NULL,
 MODIFY COLUMN place CHAR(45),
 ALTER COLUMN place SET DEFAULT "Hello World!",
@@ -131,6 +131,24 @@ DROP primary key;
 
 DROP TABLE test;
 
+INSERT baggage (weight, volume, type)
+VALUES
+(20.0,21.0,'SUITCASE'),
+(16.9,2.0,'ANIMAL'),
+(15.5,0.0,'ANIMAL'),
+(8.0,8.8,'SUITCASE');
+
+INSERT country (name, shortname)
+VALUES
+('RUSSIAN', 'RUS'),
+('England'),
+('America', 'USA');
+
+INSERT plane (model, tailNumber)
+VALUES
+('AH-112', '9109'),
+('GHaT','0001'),
+('MiG17', '981213');
 
 
 
