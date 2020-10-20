@@ -150,6 +150,22 @@ VALUES
 ('GHaT','0001'),
 ('MiG17', '981213');
 
+CREATE TABLE Test;
+
+ALTER TABLE Test RENAME reviews;
+RENAME TABLE reviews TO imagination;
+RENAME TABLE imagination TO NOimagination;
+
+ALTER TABLE NOimagination
+ADD hard boolean DEFAULT TRUE,
+ADD justZero TINYTEXT DEFAULT 1;
+
+ALTER TABLE NOimagination CHANGE COLUMN hard impossible char(5) DEFAULT 'YES';
+
+
+
+
+
 
 
     
