@@ -155,6 +155,204 @@ where name is null or amount is null;
 
 select price as цена, name as Наименование, amount as Количество, popularity as Популярность
 from test;
+drop table test;
+
+/* Запросы Like, REGEXp */
+
+select * from patient
+where FIO like '%а';
+
+select * from patient
+where FIO like 'я%';
+
+select * from patient
+where FIO like '%ова%';
+
+select * from patient
+where FIO not like '%а';
+
+select * from patient
+where FIO not like 'я%';
+
+select * from patient
+where FIO not like '%ова%';
+
+select * from patient
+where FIO  like 'а%ч';
+
+select * from patient
+where FIO  like '_н%';
+
+select * from patient
+where Phone REGEXP '38|33';
+
+select * from storehouse
+where name REGEXP 'Склад [14]';
+
+select * from storehouse
+where name REGEXP 'Склад [1-3]';
+
+/* Запросы Сount, max, min, sum, avg */
+
+Create table test
+ ( 
+	id int primary key auto_increment,
+    name varchar(45),
+	price int,
+    amount int,
+    discount int,
+    check (discount < price)
+);
+
+insert test (name, price, amount, discount)
+VALUES
+(product1, 400, 60, 150),
+(product2, 800, 20, 0),
+(product3, 900, 50, 0),
+(product4, 800, 25, 210),
+(product5, 1200, 20, 90),
+(product6, 220, 55, 0),
+(product6, 100, 41, 0),
+(product6, 1233, 21, 0),
+(product6, 240, 55, 0),
+(product7, 390, 20, 0);
+
+select count (id)
+from test;
+
+select count (discount)
+from test
+where discount != 0;
+
+select count (name)
+from test
+where discount = 0 and amount between 20 and 30;
+
+select avg(price, amount)
+from test;
+
+select sum((price - discount)*amount) as TotalCost
+from test;
+
+select sum (amount)
+from test;
+
+select sum(amount) as TotalAmount6
+from test
+where name = product6;
+
+select min(price) as SmallestPrice
+from test;
+
+select max(price) as LargestPrice
+from test;
+
+drop table test;
+
+
+/* Запросы Group by, having */
+
+select provider, count(*) as ProviderCount
+from medicine
+group by Provider
+having count(*) > 2;
+
+select provider, `way of using`, count(*) as ProviderCount
+from medicine
+group by Provider, `way of using`;
+
+
+select provider, count(*) as ProviderCount
+from medicine
+where `Way of using` != 'inner'
+group by Provider
+having count(*) > 2;
+
+select name, count(*) as NameCount
+from pharmacy
+where length(name) > 5
+and Phone REGEXP '+7%'
+group by Name
+Having count(*) > 2;
+
+
+/* Запросы order by, ASC|DESC */
+
+select * from medicine
+order by price;
+
+Create table test
+ ( 
+	id int primary key auto_increment,
+    name varchar(45),
+	price int,
+    amount int,
+    discount int,
+    check (discount < price)
+);
+
+insert test (name, price, amount, discount)
+VALUES
+(product1, 400, 60, 150),
+(product2, 800, 20, 0),
+(product3, 900, 50, 0),
+(product4, 800, 25, 210),
+(product5, 1200, 20, 90),
+(product6, 220, 55, 0),
+(product6, 100, 41, 0),
+(product6, 1233, 21, 0),
+(product6, 240, 55, 0),
+(product7, 390, 20, 0);
+
+select name, price * amount as TotalSumNoDiscount
+from test
+order by TotalSumNoDiscount;
+
+select name, price, amount
+from test
+order by (price-discount)*amount;
+
+select name, price * amount as TotalSumNoDiscount
+from test
+order by TotalSumNoDiscount desc;
+
+select name, price, amount
+from test
+order by (price-discount)*amount desc;
+
+select name, price, amount
+from test
+order by price asc, name desc;
+
+
+/* Вложенные select */
+
+select * from adress
+where idadress in
+(
+	select `address_idadress`
+	from patient
+	where idPatient in
+	(
+		select `patient_idPatient`
+		from reviews
+		where `Reasonable price` = 'Excellent'
+	)
+);
+
+select FIO, phone
+from patient
+where idPatient in
+(
+	select patient_idPatient
+    from `order`
+    where Status = 'in progress' and getdate() > date_add(`Date of creation`,  interval 7 day)
+);
+
+	
+    
+
+
 
 
 
