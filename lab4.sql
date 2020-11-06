@@ -102,7 +102,7 @@ Create table test
 	price int,
 	name varchar(45),
     amount int,
-    popularity int unsigned default(0),
+    popularity int unsigned default 0,
     check (popularity >= 0 and popularity <= 100)
 );
 
@@ -349,8 +349,228 @@ where idPatient in
     where Status = 'in progress' and getdate() > date_add(`Date of creation`,  interval 7 day)
 );
 
-	
+
+/* Запросы select into */	
+
+select * into PatientCopy
+from patient;
+
+select FIO, sex into ShortPatient
+from patient;
+
+select * into OnlyFemale
+from patient
+where sex = 'female';
+
+select patient.FIO, `order.orderid`
+into test1
+from patient
+left join `order` on patient.patientid = `order.patientid`;
+
+drop table PatientCopy, ShortPatient, OnlyFemale, test1;
+
+
+/* Запросы insert into select */
+
+create table test1 
+(
+	id int primary key auto_increment,
+    name varchar(45),
+    address varchar(45),
+    city varchar(45),
+    coutry varchar(45)
+);
+
+insert test1 (name, address, city, country)
+values
+('Jon', 'Avenue 21', 'New York', 'USA'),
+('Mike', 'Street 11', 'Berlin', 'Germane'),
+('James', 'Goosetam 9', 'Berlin', 'Germane'),
+('Mary', 'Grassia 58', 'Rome', 'Italia');
     
+create table test2 
+(
+	id int primary key auto_increment,
+    name varchar(45),
+    address varchar(45),
+    city varchar(45),
+    coutry varchar(45)
+);
+
+insert test1 (name, address, city, country)
+values
+('Katrin', 'Hast 21', 'Paris', 'France'),
+('Rayan', 'Kenstring 11/2', 'Detroid', 'USA');
+
+INSERT INTO test1 (name, city, country)
+SELECT name, city, country FROM test2;
+
+INSERT INTO test1 (name, city, country)
+SELECT name, city, country FROM test2
+where country = 'USA';
+
+drop table test1, test2;
+
+
+/* Запросы UNION (ALL), EXCEPT, INTERCEPT */
+
+create table test1 
+(
+	id int primary key auto_increment,
+    name varchar(45),
+    address varchar(45),
+    city varchar(45),
+    coutry varchar(45)
+);
+
+insert test1 (name, address, city, country)
+values
+('Jon', 'Avenue 21', 'New York', 'USA'),
+('Mike', 'Street 11', 'Berlin', 'Germane'),
+('James', 'Goosetam 9', 'Berlin', 'Germane'),
+('Mary', 'Grassia 58', 'Rome', 'Italia');
+    
+create table test2 
+(
+	id int primary key auto_increment,
+    name varchar(45),
+    address varchar(45),
+    city varchar(45),
+    coutry varchar(45)
+);
+
+insert test1 (name, address, city, country)
+values
+('Katrin', 'Hast 21', 'Paris', 'France'),
+('Rayan', 'Kenstring 11/2', 'Detroid', 'USA'),
+('Alena', 'Grassia 18', 'Rome', 'Italia');
+
+select city from  test1
+union /* without duplicate */
+select city from test2
+order by city;
+
+select country from test1
+union all
+select country from test2
+order by country;
+
+select city from test1
+union all
+select city from test2
+where length(city) > 5
+order by country;
+
+/*
+select country
+from test1
+except 
+select country
+from test2;
+				output: USA, Germane
+
+select country
+from test1 
+intersect
+select country
+from test2;
+				output: Italia
+*/
+
+drop table test1, test2;
+
+
+/* JOIN:  INNER, OUTTER (LEFT, RIGHT, FULL), CROSS, NATURAL */
+
+create table customers 
+(
+	id int primary key auto_increment,
+    name varchar(45),
+    address varchar(45),
+    city varchar(45),
+    coutry varchar(45)
+);
+
+insert customers (name, address, city, country)
+values
+('Jon', 'Avenue 21', 'New York', 'USA'),
+('Mike', 'Street 11', 'Berlin', 'Germane'),
+('James', 'Goosetam 9', 'Berlin', 'Germane'),
+('Mary', 'Grassia 58', 'Rome', 'Italia');
+
+create table goods
+(
+	goodsid int primary key auto_increment,
+    name varchar(45),
+    price int not null,
+    customersId INT NOT NULL REFERENCES customers(Id) ON DELETE CASCADE
+);
+
+insert goods (goodsid, name, price, customersId)
+values
+(1, phone, 20000, 2),
+(2, PC, 51000, 1),
+(3, fridge, 21800, 4),
+(4, keyboard, 5400, 3);
+
+select * from customers
+inner join goods
+on customers.id = goods.customersId;
+
+select goods.name, goods.price, customers.name
+from customers
+inner join goods
+on customers.id = goods.customersId;
+
+select goods.name, goods.price, customers.name
+from customers
+inner join goods
+on customers.id = goods.customersId and goods.price > 20000;
+
+select name, price, customersId
+from goods left join customers
+on goods.customersId = customers.id;
+
+select name, price, customersId
+from goods right join customers
+on goods.customersId = customers.id;
+
+select name, price, customersId
+from goods left join customers
+on goods.customersId = customers.id
+where goods.price > 20000
+order by goods.name;
+
+select name, price, customersId
+from goods full join customers
+on goods.customersId = customers.id
+where goods.price < 21000;
+
+select * from goods cross join customers;
+
+select * from goods
+natural join customers;
+
+drop table goods, customers;
+
+
+/* Limit */
+
+select * from address
+limit 3;
+
+select * from address
+limit 2, 3; /* skip 2 rows, than select 3 rows */
+
+select * from address
+order by city
+limit 2, 3;
+
+
+
+
+
+
 
 
 
