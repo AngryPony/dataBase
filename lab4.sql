@@ -1,10 +1,104 @@
 USE apteka;
 
-/*Справочные
-Получить перечень и типы лекарств, достигших своей критической нормы или закончившихся
-*/
+/*Транзакционные (задачи учёта): */
 
+	/* Удалить отзыв */
+    delete from rewiews 
+    where idreviews = 12;
+    
+	/* Изменить отзыв */
+    update reviews
+    set `Quality of service` = 'Excellent', 
+		`Reasonable price` = 'Excellent', 
+        `Delivery speed` = 'Excellent', 
+        `Delivery quality` = 'Excellent', 
+        `Wishes` = null
+    where idreviews = 12;
+    
+	/* Отметить заказ */
+    delete from `order`
+    where idorder = 12;
+    
+	/* Перенести планируемую дату доставки */
+    update storehouse
+    set `Delivery Time` = 3
+    where idstorehouse = 12;
+    
+	/* Перенести адрес заказа */
+    update `order`
+	set `Delivery adress` = ''
+    where idorder = 12;
+    
+/* Справочные (оперативные запросы): */
 
+	/* Получить перечень и типы лекарств, достигших своей критической нормы или закончившихся */
+    select `name`, provider, `type`
+    from medicine
+    where medicine.id = stock.medicine_idmedicine 
+    and stock.Amount < medicine.`Critikal limits`;
+    
+	/* Получить перечень лекарств с минимальным запасом на складе в целом */
+    select `name`, provider
+    from medicine
+    where medicine.id = stock.medicine_idmedicine 
+    and stock.storehouse_idstorehouse != 0
+    and stock.Amount = (select min(amount) from stock);
+    
+	/* Получить перечень лекарств с минимальным запасом на складе по указанной категории медикаментов */
+    select `name`, provider
+    from medicine
+    where medicine.id = stock.medicine_idmedicine 
+    and stock.storehouse_idstorehouse != 0
+    and medicine.Type = 'Tablets'
+    and stock.Amount = (select min(amount) from stock);
+    
+	/* Получить полный перечень и общее число заказов, находящихся в производстве */
+    select amount, medicine.Name, medicine.Provider
+    from `order`
+    where `order`.status = 'in progress'
+	and `order`.idorder = order_has_medicine.order_idorder 
+    and order_has_medicine.medicine_idmedicine = medicine.idmedicine
+    order by Amount;
+    
+	/* Получить активные заказы в одной аптеке */
+	select `name`, `type`, `order`.Amount
+    from medicine
+    where `order`.Status = 'in progress'
+    and `order`.idorder = order_has_medicine.order_idorder
+    and order_has_medicine.medicine_idmedicine = medicine.idmedicine
+    and medicine.idmedicine = 17;
+
+/* Справочные расчётные (аналитические запросы): */
+	/* Получить сведения о покупателях, которые не пришли забрать свой заказ в назначенное им время и их число */
+    select idPatient, FIO, Phone, `order`.status
+    from patient
+    where patient.idPatient = `order`.patient_idPatient
+    and `order`.status = 'waiting'
+    and select CURDATE() > (select date_add (`order`.`Date of creation`, interval storehouse.`Delivery Time` day)); /*??????*/
+    
+	/* Получить перечень пяти наиболее часто используемых медикаментов в целом */
+    select pharmacy_idpharmacy, medicine.name
+    from `order`
+    where pharmacy_idpharmacy = medicine.idmedicine
+    group by pharmacy_idpharmacy
+    order by count(*) desc
+		limit 5;
+    
+	/* Получить сведения о трех клиентах сделавших самые большие заказы */
+    select FIO, Sex, phone, `order`.Amount
+    from patient
+    where `order`.patient_idPatient = patient.idPatient
+    group by `order`.Amount
+    order by count(*) desc
+		limit 3;
+        
+	/* Получить месячный объем продаж лекарств */
+    select sum(amount) as TotalAmount from `order`
+    where curdate() > `order`.`Date of creation` and curdate() < date_add(`order`.`Date of creation`, interval 1 month);
+    
+	/* Получить среднюю стоимость лекарств, проданных за месяц */
+	select avg(amount * medicine.Price) as AveragePrice from `order`
+    where curdate() > `order`.`Date of creation` and curdate() < date_add(`order`.`Date of creation`, interval 1 month);
 
 /* Запросы INSERT*/
 
