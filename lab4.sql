@@ -3,8 +3,8 @@ USE apteka;
 /*Транзакционные (задачи учёта): */
 
 	/* Удалить отзыв */
-    delete from rewiews 
-    where idreviews = 12;
+	delete from apteka.reviews
+	where idreviews = 8;
     
 	/* Изменить отзыв */
     update reviews
@@ -22,63 +22,60 @@ USE apteka;
 	/* Перенести планируемую дату доставки */
     update storehouse
     set `Delivery Time` = 3
-    where idstorehouse = 12;
+    where idstorehouse = 10;
     
 	/* Перенести адрес заказа */
     update `order`
-	set `Delivery adress` = ''
-    where idorder = 12;
+	set `Delivery adress` = 'ул. Мелиоративная, 10, Светлый Яр, Волгоградская обл., 414161'
+    where idorder = 11;
     
 /* Справочные (оперативные запросы): */
 
 	/* Получить перечень и типы лекарств, достигших своей критической нормы или закончившихся */
     select `name`, provider, `type`
-    from medicine
-    where medicine.id = stock.medicine_idmedicine 
+    from medicine, stock
+    where medicine.idmedicine = stock.medicine_idmedicine
     and stock.Amount < medicine.`Critikal limits`;
     
 	/* Получить перечень лекарств с минимальным запасом на складе в целом */
-    select `name`, provider
-    from medicine
-    where medicine.id = stock.medicine_idmedicine 
-    and stock.storehouse_idstorehouse != 0
-    and stock.Amount = (select min(amount) from stock);
+    select `name`, provider, Amount
+    from medicine, stock
+    where stock.Amount = (select min(amount) from stock) 
+    and  medicine.idmedicine = stock.medicine_idmedicine;
     
 	/* Получить перечень лекарств с минимальным запасом на складе по указанной категории медикаментов */
-    select `name`, provider
-    from medicine
-    where medicine.id = stock.medicine_idmedicine 
-    and stock.storehouse_idstorehouse != 0
-    and medicine.Type = 'Tablets'
-    and stock.Amount = (select min(amount) from stock);
+    select `name`, type, provider, Amount
+    from medicine, stock
+    where stock.Amount = (select min(amount) from stock) 
+    and stock.medicine_idmedicine = medicine.idmedicine 
+    and medicine.Type = 'Powders';
     
 	/* Получить полный перечень и общее число заказов, находящихся в производстве */
     select amount, medicine.Name, medicine.Provider
-    from `order`
+    from `order`, medicine, order_has_medicine
     where `order`.status = 'in progress'
 	and `order`.idorder = order_has_medicine.order_idorder 
     and order_has_medicine.medicine_idmedicine = medicine.idmedicine
     order by Amount;
     
 	/* Получить активные заказы в одной аптеке */
-	select `name`, `type`, `order`.Amount
-    from medicine
+	select `name`, city, street, `zip code`,`order`.Amount, `Date of creation`
+    from  `order`, pharmacy, address
     where `order`.Status = 'in progress'
-    and `order`.idorder = order_has_medicine.order_idorder
-    and order_has_medicine.medicine_idmedicine = medicine.idmedicine
-    and medicine.idmedicine = 17;
+    and `order`.pharmacy_idpharmacy = pharmacy.idpharmacy 
+    and pharmacy.address_idadress = address.idadress;
 
 /* Справочные расчётные (аналитические запросы): */
 	/* Получить сведения о покупателях, которые не пришли забрать свой заказ в назначенное им время и их число */
     select idPatient, FIO, Phone, `order`.status
-    from patient
+    from patient, `order`, storehouse
     where patient.idPatient = `order`.patient_idPatient
     and `order`.status = 'waiting'
-    and select CURDATE() > (select date_add (`order`.`Date of creation`, interval storehouse.`Delivery Time` day)); /*??????*/
+    and date_sub(current_date(), interval )
     
 	/* Получить перечень пяти наиболее часто используемых медикаментов в целом */
-    select pharmacy_idpharmacy, medicine.name
-    from `order`
+    select medicine.name, type, Provider
+    from `order`, medicine
     where pharmacy_idpharmacy = medicine.idmedicine
     group by pharmacy_idpharmacy
     order by count(*) desc
@@ -86,18 +83,18 @@ USE apteka;
     
 	/* Получить сведения о трех клиентах сделавших самые большие заказы */
     select FIO, Sex, phone, `order`.Amount
-    from patient
+    from patient, `order`
     where `order`.patient_idPatient = patient.idPatient
     group by `order`.Amount
-    order by count(*) desc
+    order by `order`.Amount desc
 		limit 3;
         
 	/* Получить месячный объем продаж лекарств */
     select sum(amount) as TotalAmount from `order`
-    where curdate() > `order`.`Date of creation` and curdate() < date_add(`order`.`Date of creation`, interval 1 month);
+    where curdate() >= `order`.`Date of creation` and curdate() <= date_add(`order`.`Date of creation`, interval 1 month);
     
 	/* Получить среднюю стоимость лекарств, проданных за месяц */
-	select avg(amount * medicine.Price) as AveragePrice from `order`
+	select avg(amount * medicine.Price) as 'AveragePrice in rub' from `order`, medicine
     where curdate() > `order`.`Date of creation` and curdate() < date_add(`order`.`Date of creation`, interval 1 month);
 
 /* Запросы INSERT*/
@@ -119,9 +116,9 @@ values
 
 insert stock (Amount,`Update date`, pharmacy_idpharmacy, storehouse_idstorehouse, medicine_idmedicine)
 values
-(20, 2020-11-02, 7, null, 12),
-(200, 2020-09-02, null, 3, 7),
-(6, 2020-10-12, 2, null, 2);
+(20, '2020-03-25', 7, null, 12),
+(200, '2020-11-15', null, 3, 7),
+(6, '2020-09-21', 2, null, 2);
 
 
 /* Запросы UPDATE (с WHERE) */
@@ -136,17 +133,17 @@ where street = 'Ленанина';
 update medicine
 set price = price + 60; /* увеличиваем цену на все лекарства */
 
-update store
+update stock
 set amount = amount + 20
 where amount < 100;
 
 update `order type`
 set price = price - 10
-where name != 'самовывоз' OR name !='Почта России';
+where not (`order type`.name = 'Самовывоз' OR  `order type`.name ='Почта России');
 
 update doctor
 set `place of work` = 'ЧК Панацея'
-where name = 'Панацея';
+where `place of work` = 'Панацея';
 
 update medicine
 set price = price - 30
@@ -205,15 +202,15 @@ VALUES
 (5000,'detail1', 40, 30),
 (500,'detail2', 40, 30),
 (500,'detail3', 350, 100),
-(4500,'detail4', 40, 70),
+(1500,'detail4', 40, 80),
 (5000,'detail5', 40, 30),
-(1000, null, 40, 30),
+(1400, null, 40, 75),
 (2230,'detail1', null, 0),
 (210,'detail2', 21, 30),
 (21100,'detail3', null, 30),
 (200,'detail5', null, 0);
 
-select distinct test; 
+select distinct * from test; 
 
 select distinct price, amount from test;
 
@@ -221,9 +218,9 @@ select name
 from test
 where not name = 'detail1';
 
-select name
+select name, price as 'Price in rub'
 from test
-where not null;
+where amount is not null and name is not null;
 
 select popularity
 from test
@@ -242,7 +239,7 @@ AND price between 1000 and 3000;
 update test
 set price = price - 100
 where price not between 0 and 500
-AND popularity < 50 and not null;
+AND popularity < 50;
 
 select * from test
 where name is null or amount is null;
@@ -251,13 +248,13 @@ select price as цена, name as Наименование, amount as Колич
 from test;
 drop table test;
 
-/* Запросы Like, REGEXp */
+/* Запросы Like, REGEXP */
 
 select * from patient
 where FIO like '%а';
 
 select * from patient
-where FIO like 'я%';
+where FIO like 'ч%';
 
 select * from patient
 where FIO like '%ова%';
@@ -266,13 +263,13 @@ select * from patient
 where FIO not like '%а';
 
 select * from patient
-where FIO not like 'я%';
+where FIO not like 'ч%';
 
 select * from patient
 where FIO not like '%ова%';
 
 select * from patient
-where FIO  like 'а%ч';
+where FIO like 'к%ч';
 
 select * from patient
 where FIO  like '_н%';
@@ -300,40 +297,40 @@ Create table test
 
 insert test (name, price, amount, discount)
 VALUES
-(product1, 400, 60, 150),
-(product2, 800, 20, 0),
-(product3, 900, 50, 0),
-(product4, 800, 25, 210),
-(product5, 1200, 20, 90),
-(product6, 220, 55, 0),
-(product6, 100, 41, 0),
-(product6, 1233, 21, 0),
-(product6, 240, 55, 0),
-(product7, 390, 20, 0);
+('product1', 400, 60, 150),
+('product2', 800, 20, 0),
+('product3', 900, 50, 0),
+('product4', 800, 25, 210),
+('product5', 1200, 20, 90),
+('product6', 220, 55, 0),
+('product6', 100, 41, 0),
+('product6', 1233, 21, 0),
+('product6', 240, 55, 0),
+('product7', 390, 20, 0);
 
-select count (id)
+select count(id) as NumberOfProducts 
 from test;
 
-select count (discount)
+select count(discount)
 from test
 where discount != 0;
 
-select count (name)
+select count(name)
 from test
 where discount = 0 and amount between 20 and 30;
 
-select avg(price, amount)
+select avg(price) as 'Средняя цена'
 from test;
 
 select sum((price - discount)*amount) as TotalCost
 from test;
 
-select sum (amount)
+select sum(amount)
 from test;
 
 select sum(amount) as TotalAmount6
 from test
-where name = product6;
+where name = 'product6';
 
 select min(price) as SmallestPrice
 from test;
@@ -362,12 +359,12 @@ where `Way of using` != 'inner'
 group by Provider
 having count(*) > 2;
 
-select name, count(*) as NameCount
+select name, phone, count(*) as NameCount
 from pharmacy
 where length(name) > 5
-and Phone REGEXP '+7%'
+and pharmacy.Phone regexp '^8'
 group by Name
-Having count(*) > 2;
+Having count(*) > 1;
 
 
 /* Запросы order by, ASC|DESC */
@@ -387,22 +384,22 @@ Create table test
 
 insert test (name, price, amount, discount)
 VALUES
-(product1, 400, 60, 150),
-(product2, 800, 20, 0),
-(product3, 900, 50, 0),
-(product4, 800, 25, 210),
-(product5, 1200, 20, 90),
-(product6, 220, 55, 0),
-(product6, 100, 41, 0),
-(product6, 1233, 21, 0),
-(product6, 240, 55, 0),
-(product7, 390, 20, 0);
+('product1', 400, 60, 150),
+('product2', 800, 20, 0),
+('product3', 900, 50, 0),
+('product4', 800, 25, 210),
+('product5', 1200, 20, 90),
+('product6', 220, 55, 0),
+('product6', 100, 41, 0),
+('product6', 1233, 21, 0),
+('product6', 240, 55, 0),
+('product7', 390, 20, 0);
 
 select name, price * amount as TotalSumNoDiscount
 from test
 order by TotalSumNoDiscount;
 
-select name, price, amount
+select name, price, amount, (price-discount)*amount as TotalSumWithDiscount
 from test
 order by (price-discount)*amount;
 
@@ -418,10 +415,11 @@ select name, price, amount
 from test
 order by price asc, name desc;
 
+drop table test;
 
 /* Вложенные select */
 
-select * from adress
+select * from address
 where idadress in
 (
 	select `address_idadress`
@@ -440,12 +438,11 @@ where idPatient in
 (
 	select patient_idPatient
     from `order`
-    where Status = 'in progress' and getdate() > date_add(`Date of creation`,  interval 7 day)
+    where Status = 'in progress' and curdate() > date_add(`Date of creation`,  interval 7 day)
 );
 
 
-/* Запросы select into */	
-
+/* Запросы select into 	
 select * into PatientCopy
 from patient;
 
@@ -456,12 +453,26 @@ select * into OnlyFemale
 from patient
 where sex = 'female';
 
-select patient.FIO, `order.orderid`
+select patient.FIO, `order`.idorder
 into test1
-from patient
+from patient,order
 left join `order` on patient.patientid = `order.patientid`;
 
-drop table PatientCopy, ShortPatient, OnlyFemale, test1;
+drop table PatientCopy, ShortPatient, OnlyFemale, test1; */
+
+create table PatientCopy as select * from patient;
+
+create table ShortPatient as select FIO, sex from patient;
+
+create table OnlyFemale 
+as select * from patient
+where sex = 'female';
+
+select * from PatientCopy;
+select * from ShortPatient;
+select * from OnlyFemale;
+
+drop table PatientCopy, ShortPatient, OnlyFemale;
 
 
 /* Запросы insert into select */
@@ -472,7 +483,7 @@ create table test1
     name varchar(45),
     address varchar(45),
     city varchar(45),
-    coutry varchar(45)
+    country varchar(45)
 );
 
 insert test1 (name, address, city, country)
@@ -488,10 +499,10 @@ create table test2
     name varchar(45),
     address varchar(45),
     city varchar(45),
-    coutry varchar(45)
+    country varchar(45)
 );
 
-insert test1 (name, address, city, country)
+insert test2 (name, address, city, country)
 values
 ('Katrin', 'Hast 21', 'Paris', 'France'),
 ('Rayan', 'Kenstring 11/2', 'Detroid', 'USA');
@@ -514,7 +525,7 @@ create table test1
     name varchar(45),
     address varchar(45),
     city varchar(45),
-    coutry varchar(45)
+    country varchar(45)
 );
 
 insert test1 (name, address, city, country)
@@ -530,10 +541,10 @@ create table test2
     name varchar(45),
     address varchar(45),
     city varchar(45),
-    coutry varchar(45)
+    country varchar(45)
 );
 
-insert test1 (name, address, city, country)
+insert test2 (name, address, city, country)
 values
 ('Katrin', 'Hast 21', 'Paris', 'France'),
 ('Rayan', 'Kenstring 11/2', 'Detroid', 'USA'),
@@ -549,9 +560,9 @@ union all
 select country from test2
 order by country;
 
-select city from test1
+select city,country from test1
 union all
-select city from test2
+select city, country from test2
 where length(city) > 5
 order by country;
 
@@ -576,13 +587,15 @@ drop table test1, test2;
 
 /* JOIN:  INNER, OUTTER (LEFT, RIGHT, FULL), CROSS, NATURAL */
 
+/* JOIN:  INNER, OUTTER (LEFT, RIGHT, FULL), CROSS, NATURAL */
+
 create table customers 
 (
 	id int primary key auto_increment,
     name varchar(45),
     address varchar(45),
     city varchar(45),
-    coutry varchar(45)
+    country varchar(45)
 );
 
 insert customers (name, address, city, country)
@@ -602,10 +615,10 @@ create table goods
 
 insert goods (goodsid, name, price, customersId)
 values
-(1, phone, 20000, 2),
-(2, PC, 51000, 1),
-(3, fridge, 21800, 4),
-(4, keyboard, 5400, 3);
+(1, 'phone', 20000, 2),
+(2, 'PC', 51000, 1),
+(3, 'ridge', 21800, 4),
+(4, 'keyboard', 5400, 3);
 
 select * from customers
 inner join goods
@@ -621,24 +634,25 @@ from customers
 inner join goods
 on customers.id = goods.customersId and goods.price > 20000;
 
-select name, price, customersId
+select goods.name, price, customersId
 from goods left join customers
 on goods.customersId = customers.id;
 
-select name, price, customersId
+select goods.name, price, customersId
 from goods right join customers
 on goods.customersId = customers.id;
 
-select name, price, customersId
+
+select goods.name, price, customersId
 from goods left join customers
 on goods.customersId = customers.id
 where goods.price > 20000
 order by goods.name;
 
-select name, price, customersId
+select customers.name, price, customersId
 from goods full join customers
-on goods.customersId = customers.id
-where goods.price < 21000;
+on customersId = customers.id
+where price < 21000;
 
 select * from goods cross join customers;
 
@@ -646,7 +660,6 @@ select * from goods
 natural join customers;
 
 drop table goods, customers;
-
 
 /* Limit */
 
