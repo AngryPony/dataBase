@@ -3,13 +3,13 @@ use apteka;
 	/* Индексы */
     
 /*Запросить заказы количество который от 50 и до 200 */
-create index amount on `order`(`amount`);
+create index  amount on `order`(`amount`);
 
     explain select * from `order`
     where `order`.amount > 50 and `order`.amount <= 200
     order by Amount desc;
 
-drop index amount on `order`;
+drop index  amount on `order`;
 
 /*Запросить заказы которые завершены */
 create index `status` on `order`(`status`);
@@ -110,7 +110,6 @@ END
 
 call sp_providerPopularity('dazolic',@p);
 select @p;
-
 
 
 
