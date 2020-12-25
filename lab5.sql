@@ -163,10 +163,10 @@ end;
 
 select distanceToOffice('R2D2');
 
-/* Узнать р */
+/* Узнать все лекарства в одном заказе */
 drop function if exists getMedicine;
 DELIMITER |
-create function getMedicine (order_id int )
+create function getMedicine (order_id_in int )
 returns text
 DETERMINISTIC
 Begin
@@ -174,8 +174,8 @@ Begin
     declare cur_id int;
     declare med_name varchar (255);
     declare done int default 0;
-    declare cur1 cursor for select medicine_idmedicine from order_has_medicine, `order`
-							where order_idorder = idorder;
+    declare cur1 cursor for select medicine_idmedicine from order_has_medicine
+							where order_idorder = order_id_in;
 	declare continue handler for sqlstate '02000' set
     done = 1;
     
@@ -183,16 +183,14 @@ Begin
 	while done = 0 do
 		fetch cur1 into cur_id;
         select `name` into med_name from medicine where idmedicine = cur_id;
-        set result = concat_ws('', result, med_name);
+        set result = concat_ws(' ; ', result, med_name);
 	end while;
     close cur1;
 	return result;
 end;
 |
 
-select getMedicine(6);
-
-
+select getMedicine(5);
 
 		/* Представления */
         
