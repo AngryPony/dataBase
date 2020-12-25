@@ -5,7 +5,7 @@ use apteka;
 /*Запросить заказы количество который от 50 и до 200 */
 create index  amount on `order`(`amount`);
 
-    explain select * from `order`
+    select * from `order`
     where `order`.amount > 50 and `order`.amount <= 200
     order by Amount desc;
 
@@ -14,7 +14,7 @@ drop index  amount on `order`;
 /*Запросить заказы которые завершены */
 create index `status` on `order`(`status`);
 
-    explain select * from `order`
+    select * from `order`
     where `order`.`status` = 'done'
     order by `Date of creation` desc;    
 
@@ -23,7 +23,7 @@ drop index status on `order`;
 /* Вывести всех пациентов мужского пола*/
 create index sex on patient(sex);
 
-	explain select FIO, Sex, Diagnosis from patient
+	select FIO, Sex, Diagnosis from patient
 	where sex = 'male'
 	order by FIO ;
 
@@ -32,23 +32,24 @@ drop index sex on patient;
 /* Вывести лекарства со стоимостью больше 700 рублей и критическими запасами меньше 50*/
 create index price_lim on medicine (`price`, `Critikal limits`);
 
-	explain select * from medicine
+	select * from medicine
 	where price > 700 and `Critikal limits` < 50
 	order by price;
 
 drop index price_lim on medicine;
     
     /* Показать все цены на лекарства*/
-create index price on medicine(price);
-
-   explain select distinct price from medicine;
+create index price on medicine(`price`);
+    
+   select distinct price from medicine
+   order by price desc;
    
 drop index price on medicine;
 
 /* Найти пациента по номеру телефоны*/
 create unique index phone on patient(phone);
 
-	explain select * from patient
+	select * from patient
 	where Phone = '+7 (911) 679-5411-81';
 
 drop index phone on patient;
@@ -75,8 +76,8 @@ BEGIN
     where FIO = p_Fio;
 END
 |
-drop procedure sp_patientByFIO;
 call sp_patientByFIO('Поляков Баратолий Леонидович');
+drop procedure sp_patientByFIO;
 
 /* Получить перечень лекарств с минимальным запасом на складе в целом */
 DELIMITER |
@@ -88,8 +89,8 @@ BEGIN
     and  medicine.idmedicine = stock.medicine_idmedicine;
 END
 |
-drop procedure sp_lowestMedicine;
 call sp_lowestMedicine;
+drop procedure sp_lowestMedicine;
 
 /* Узнать востребовательность поставщика */
 drop procedure IF EXISTS sp_providerPopularity;
@@ -108,12 +109,88 @@ BEGIN
 END
 |
 
-call sp_providerPopularity('dazolic',@p);
+call sp_providerPopularity('cifan',@p);
 select @p;
 
+/* Узнать совершеннолетний ли пациент */
+drop function if exists IsAdult;
+DELIMITER |
+create function IsAdult (f_FIO varchar(45) )
+returns varchar(45)
+DETERMINISTIC
+Begin
+	declare result varchar(30);
+    declare f_year smallint;
+    declare yearOfBirth smallint;
+    
+    set yearOfBirth = (select year(`Date of Birth`) from patient where FIO = f_FIO);
+    set f_year = year(curdate());
+		if (f_year - yearOfBirth > 17) then
+			set result = 'Совершеннолетний пациент';
+		else
+			set result = 'Несовершеннолетний пациент';
+	end if;
+return result;
+end;
+|
 
+select IsAdult('Никифорова Элизабет Валерьяновна');
 
+/* Узнать расстояние от главного офиса */
+drop function if exists distanceToOffice;
+DELIMITER |
+create function distanceToOffice (f_FIO varchar(45) )
+returns varchar(30)
+DETERMINISTIC
+Begin
+	declare result varchar(30);
+    declare f_city varchar(30);
+    
+    set f_city = (  select city from  address
+					join patient on idadress = address_idadress
+					where FIO = f_FIO  );
+	case f_city
+		when 'Волгоград' then 
+        set result = 'Близкое расположение';
+        when 'Волжский' then
+        set result = 'Среднее расположение';
+		else
+        set result = 'Дальнее расположение';
+	end case;
+return result;
+end;
+|
 
+select distanceToOffice('R2D2');
+
+/* Узнать р */
+drop function if exists getMedicine;
+DELIMITER |
+create function getMedicine (order_id int )
+returns text
+DETERMINISTIC
+Begin
+	declare result text;
+    declare cur_id int;
+    declare med_name varchar (255);
+    declare done int default 0;
+    declare cur1 cursor for select medicine_idmedicine from order_has_medicine, `order`
+							where order_idorder = idorder;
+	declare continue handler for sqlstate '02000' set
+    done = 1;
+    
+    open cur1;
+	while done = 0 do
+		fetch cur1 into cur_id;
+        select `name` into med_name from medicine where idmedicine = cur_id;
+        set result = concat_ws('', result, med_name);
+	end while;
+    close cur1;
+	return result;
+end;
+|
+
+select getMedicine(6);
 
 
 

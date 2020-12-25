@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="jojoserv" remoteFilesAllowedToDisappearOnAutoupload="false" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="jojoserv">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/www/xn----7sbb3ajko6a5g4a.xn--p1ai/bd" local="$PROJECT_DIR$" web="https://xn----7sbb3ajko6a5g4a.xn--p1ai/bd/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="serv1">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
+  </component>
+</project>

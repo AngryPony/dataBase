@@ -1,0 +1,3816 @@
+CREATE DATABASE  IF NOT EXISTS `apteka` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `apteka`;
+-- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+--
+-- Host: localhost    Database: apteka
+-- ------------------------------------------------------
+-- Server version	8.0.21
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `address`
+--
+
+DROP TABLE IF EXISTS address;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE address (
+  idadress int NOT NULL AUTO_INCREMENT,
+  city varchar(45) NOT NULL,
+  street varchar(45) NOT NULL,
+  `build/house` varchar(10) NOT NULL,
+  `zip code` int NOT NULL,
+  PRIMARY KEY (idadress)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `address`
+--
+
+INSERT INTO address VALUES (1,'Волгоград','Елисеева','10',400120);
+INSERT INTO address VALUES (2,'Волгоград','пр. имени В.И. Ленина','106',400005);
+INSERT INTO address VALUES (3,'Волгоград','имени Константина Симонова','30',400137);
+INSERT INTO address VALUES (4,'Калач на Дону','Пролетарская','85',404507);
+INSERT INTO address VALUES (5,'Волжский','просп. Ленина','45',404130);
+INSERT INTO address VALUES (6,'Волжский','Комсомольская','19',404130);
+INSERT INTO address VALUES (7,'Михайловка','Пирогова','75',403348);
+INSERT INTO address VALUES (8,'Волжский','19 Партсъезда','34',404130);
+INSERT INTO address VALUES (9,'Светлый Яр','Спортивная','12',404171);
+INSERT INTO address VALUES (10,'Михайловка','Гоголя','68',403348);
+INSERT INTO address VALUES (11,'Волгоград','Николая Отрады','1Б',400033);
+INSERT INTO address VALUES (12,'Волгоград','95 Гвардейской','6',400006);
+INSERT INTO address VALUES (14,'Волгоград','Донецкая','3',400131);
+INSERT INTO address VALUES (15,'Волжский','б-р Профсоюзов','14',404102);
+INSERT INTO address VALUES (16,'Волгоград','пр. имени В.И. Ленина','37',400005);
+INSERT INTO address VALUES (17,'Волгоград','Комитетская','32',400120);
+INSERT INTO address VALUES (18,'Калач на Дону','Островского пер','1',404507);
+INSERT INTO address VALUES (19,'Калач на Дону','Ким','3',404507);
+INSERT INTO address VALUES (20,'Волгоград','Ленина','23',400007);
+INSERT INTO address VALUES (21,'Волгоград','Землячки','19',400607);
+INSERT INTO address VALUES (22,'Волгоград','Металлургов','16',400407);
+INSERT INTO address VALUES (23,'Волгоград','Ленина','23',400007);
+INSERT INTO address VALUES (26,'Волгоград','Ленина','23',400007);
+INSERT INTO address VALUES (27,'Волгоград','Землячки','19',400607);
+INSERT INTO address VALUES (28,'Волгоград','Металлургов','16',400407);
+INSERT INTO address VALUES (29,'Волгоград','Ленина','23',400007);
+INSERT INTO address VALUES (30,'Волгоград','Землячки','19',400607);
+INSERT INTO address VALUES (31,'Волгоград','Металлургов','16',400407);
+INSERT INTO address VALUES (32,'Волгоград','Ленина','23',400007);
+INSERT INTO address VALUES (33,'Волгоград','Землячки','19',400607);
+INSERT INTO address VALUES (34,'Волгоград','Металлургов','16',400407);
+
+--
+-- Temporary view structure for view `cifran_medicine`
+--
+
+DROP TABLE IF EXISTS cifran_medicine;
+/*!50001 DROP VIEW IF EXISTS cifran_medicine*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `cifran_medicine` AS SELECT 
+ 1 AS idmedicine,
+ 1 AS Type,
+ 1 AS `Way of using`,
+ 1 AS Name,
+ 1 AS Provider,
+ 1 AS `Dispensing method`,
+ 1 AS Price,
+ 1 AS `Critikal limits`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `dazolic_medicine`
+--
+
+DROP TABLE IF EXISTS dazolic_medicine;
+/*!50001 DROP VIEW IF EXISTS dazolic_medicine*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `dazolic_medicine` AS SELECT 
+ 1 AS idmedicine,
+ 1 AS Type,
+ 1 AS `Way of using`,
+ 1 AS Name,
+ 1 AS Provider,
+ 1 AS `Dispensing method`,
+ 1 AS Price,
+ 1 AS `Critikal limits`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `doctor`
+--
+
+DROP TABLE IF EXISTS doctor;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE doctor (
+  idDoctor int NOT NULL AUTO_INCREMENT,
+  FIO varchar(45) NOT NULL,
+  `Place of work` varchar(45) NOT NULL,
+  Phone varchar(35) DEFAULT NULL,
+  `Work address` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (idDoctor)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Врач';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `doctor`
+--
+
+INSERT INTO doctor VALUES (1,'Иванов Ким Вениаминович','Поликлиника №2','22-11-22','Волжский');
+INSERT INTO doctor VALUES (2,'Веселов Лев Рудольфович','ЧК \"Сова\"','+7 (8442) 68-50-07','Волгоград, проспект им. В.И. Ленина, 59Б');
+INSERT INTO doctor VALUES (3,'Куликов Валерий Глебович','Областная Больница','55-00-55',NULL);
+INSERT INTO doctor VALUES (4,'Комиссаров Клим Петрович','ЧК \"Сова\"','+7 (8442) 68-50-07','Волгоград, АКАДЕМИЧЕСКАЯ, 6А');
+INSERT INTO doctor VALUES (5,'Копылова Борислава Наумовна','ЧК Панацея','+7 (8442) 59-59-59','Волгоград, ул. Профсоюзная, 15Б');
+INSERT INTO doctor VALUES (6,'Мамонтов Болеслав Аристархович','Поликлиника №2','22-11-22','Волгоград');
+INSERT INTO doctor VALUES (7,'Трофимов Геннадий Денисович','ЧК Панацея','+7 (8442) 59-59-59','Волгоград, пр-т Металлургов, 30А;');
+INSERT INTO doctor VALUES (8,'Жукова Зара Антониновна','Поликлиника №12','33-01-33',NULL);
+INSERT INTO doctor VALUES (9,'Соколов Виктор Андреевич','ЧК Панацея','+7 (8442) 59-59-59','Волгоград, ул. Профсоюзная, 15Б');
+INSERT INTO doctor VALUES (10,'Агафонова Северина Егоровна','ЧК Панацея','+7 (8442) 59-59-59',NULL);
+INSERT INTO doctor VALUES (11,'Отчет','ЧК Панацея','+7 (8442) 59-52-59','Волгоград, ул. Профсоюзная, 15Б');
+
+--
+-- Table structure for table `medicine`
+--
+
+DROP TABLE IF EXISTS medicine;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE medicine (
+  idmedicine int NOT NULL AUTO_INCREMENT,
+  `Type` enum('Tablets','Ointments','Powders','Tinctures') NOT NULL COMMENT '''Таблетки'', ''Мази'', ''Порошки'', ''Настойки''',
+  `Way of using` enum('inner','outer','mixing with another') NOT NULL COMMENT '(''внутреннее'', ''наружное'', ''смешивание с другим'')',
+  `Name` varchar(45) NOT NULL,
+  Provider varchar(45) DEFAULT NULL COMMENT 'поставщик',
+  `Dispensing method` enum('prescription','over-the-counter') NOT NULL COMMENT 'способ отпуска лекарства (''по рецепту'', ''без рецепта'')',
+  Price int NOT NULL,
+  `Critikal limits` int unsigned NOT NULL COMMENT 'критическая норма лекарств. При критической норме формируется заказ на производство или доставку\\n',
+  PRIMARY KEY (idmedicine),
+  KEY price_lim (Price,`Critikal limits`),
+  KEY price (Price)
+) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='лекарство';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicine`
+--
+
+INSERT INTO medicine VALUES (1,'Tablets','inner','КЕТАНОВ 30МГ','Sunpraz','over-the-counter',1260,30);
+INSERT INTO medicine VALUES (2,'Tablets','inner','НОРБАКТИН 400МГ','Cifran','over-the-counter',1460,30);
+INSERT INTO medicine VALUES (3,'Powders','outer','ЦИФРАН СТ 500МГ+600МГ','Sunpraz','prescription',710,40);
+INSERT INTO medicine VALUES (4,'Tablets','inner','ДАЗОЛИК 500МГ.','Cifran','over-the-counter',1140,20);
+INSERT INTO medicine VALUES (5,'Powders','mixing with another','АЛФУПРОСТ МР 10МГ.','Sunpraz','over-the-counter',870,30);
+INSERT INTO medicine VALUES (6,'Tablets','mixing with another','САНПРАЗ 40МГ.','Dazolic','prescription',1400,30);
+INSERT INTO medicine VALUES (7,'Tablets','inner','КЛАБАКС 500МГ. ','Cifran','over-the-counter',950,40);
+INSERT INTO medicine VALUES (8,'Tablets','inner','ОМСУЛОЗИН 400МКГ.','Sunpraz','over-the-counter',1100,30);
+INSERT INTO medicine VALUES (9,'Ointments','outer','АЗИКС-ДЕРМ 20%','Cifran','over-the-counter',660,20);
+INSERT INTO medicine VALUES (10,'Ointments','mixing with another','РОЛИТЕН 2МГ.','Sunpraz','prescription',2220,15);
+INSERT INTO medicine VALUES (11,'Tinctures','outer','СОТРЕТ 20МГ.','Sunpraz','over-the-counter',840,20);
+INSERT INTO medicine VALUES (12,'Tinctures','inner','ЭЛЕФЛОКС 500МГ','Dazolic','prescription',2520,20);
+INSERT INTO medicine VALUES (15,'Tinctures','inner','ЭЛЕФЛОКС 300МГ','Dazolic','over-the-counter',850,100);
+INSERT INTO medicine VALUES (16,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',821,100);
+INSERT INTO medicine VALUES (17,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (18,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (19,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (20,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (21,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (22,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (23,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (24,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (25,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (26,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (27,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (28,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (29,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (30,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (31,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (32,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (33,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (34,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (35,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (36,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (37,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (38,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (39,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (40,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (41,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (42,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',432,12);
+INSERT INTO medicine VALUES (43,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (44,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (45,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (46,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',427,12);
+INSERT INTO medicine VALUES (47,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (48,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (49,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (50,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',428,12);
+INSERT INTO medicine VALUES (51,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (52,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (53,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (54,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (55,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (56,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (57,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (58,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',244,12);
+INSERT INTO medicine VALUES (59,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (60,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (61,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (62,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',5456,12);
+INSERT INTO medicine VALUES (63,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (64,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (65,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (66,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',456,12);
+INSERT INTO medicine VALUES (67,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (68,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (69,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (70,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',231,12);
+INSERT INTO medicine VALUES (71,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (72,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (73,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (74,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',87,12);
+INSERT INTO medicine VALUES (75,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (76,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (77,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (78,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',54,12);
+INSERT INTO medicine VALUES (79,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (80,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (81,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (82,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',434,12);
+INSERT INTO medicine VALUES (83,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (84,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (85,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (86,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',767,12);
+INSERT INTO medicine VALUES (87,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (88,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (89,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (90,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',878,12);
+INSERT INTO medicine VALUES (91,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (92,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (93,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (94,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',564,12);
+INSERT INTO medicine VALUES (95,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (96,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (97,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (98,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',345,12);
+INSERT INTO medicine VALUES (99,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (100,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (101,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (102,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',67,12);
+INSERT INTO medicine VALUES (103,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (104,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (105,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (106,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',87,12);
+INSERT INTO medicine VALUES (107,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (108,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (109,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (110,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',99,12);
+INSERT INTO medicine VALUES (111,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (112,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (113,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (114,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',76,12);
+INSERT INTO medicine VALUES (115,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (116,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (117,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (118,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',564,12);
+INSERT INTO medicine VALUES (119,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (120,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (121,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (122,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',453,12);
+INSERT INTO medicine VALUES (123,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (124,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (125,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (126,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (127,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (128,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (129,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (130,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (131,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (132,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (133,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (134,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (135,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (136,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (137,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (138,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (139,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (140,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (141,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (142,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (143,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (144,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (145,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (146,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (147,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (148,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (149,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (150,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (151,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (152,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (153,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (154,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (155,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (156,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (157,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (158,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (159,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (160,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (161,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (162,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (163,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (164,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (165,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (166,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (167,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (168,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (169,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (170,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (171,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (172,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (173,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (174,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (175,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (176,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (177,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (178,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (179,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (180,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (181,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (182,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (183,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (184,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (185,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (186,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (187,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (188,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (189,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (190,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (191,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (192,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (193,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (194,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (195,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (196,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (197,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (198,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (199,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (200,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (201,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (202,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (203,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (204,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (205,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (206,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (207,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (208,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (209,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (210,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (211,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (212,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (213,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (214,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (215,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (216,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (217,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (218,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (219,'Ointments','outer','Элейопс','Dazolic','over-the-counter',706,14);
+INSERT INTO medicine VALUES (220,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (221,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (222,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (223,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (224,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (225,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',811,100);
+INSERT INTO medicine VALUES (226,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (227,'Ointments','outer','Элейопс','Dazolic','over-the-counter',702,14);
+INSERT INTO medicine VALUES (228,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+INSERT INTO medicine VALUES (229,'Ointments','inner','ЭЛЕФЛОКС 200МГ','Dazolic','over-the-counter',810,100);
+INSERT INTO medicine VALUES (230,'Powders','inner','Нурофен 200МГ','Dazolic','over-the-counter',421,12);
+INSERT INTO medicine VALUES (231,'Ointments','outer','Элейопс','Dazolic','over-the-counter',700,14);
+INSERT INTO medicine VALUES (232,'Tablets','inner','Мекаротин 20МГ','Dazolic','over-the-counter',120,67);
+
+--
+-- Table structure for table `order`
+--
+
+DROP TABLE IF EXISTS order;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `order` (
+  idorder int NOT NULL AUTO_INCREMENT,
+  `Delivery adress` varchar(85) NOT NULL,
+  `Date of creation` date NOT NULL,
+  Amount int NOT NULL,
+  `Status` enum('in progress','done','waiting') NOT NULL,
+  patient_idPatient int NOT NULL,
+  pharmacy_idpharmacy int NOT NULL,
+  `order type_idorder type` int NOT NULL,
+  PRIMARY KEY (idorder),
+  KEY fk_reservation_patient1_idx (patient_idPatient),
+  KEY fk_reservation_pharmacy1_idx (pharmacy_idpharmacy),
+  KEY `fk_order_order type1_idx` (`order type_idorder type`),
+  KEY `status` (`Status`),
+  KEY amount (Amount),
+  CONSTRAINT `fk_order_order type1` FOREIGN KEY (`order type_idorder type`) REFERENCES `order type` (`idorder type`),
+  CONSTRAINT fk_reservation_patient1 FOREIGN KEY (patient_idPatient) REFERENCES patient (idPatient),
+  CONSTRAINT fk_reservation_pharmacy1 FOREIGN KEY (pharmacy_idpharmacy) REFERENCES pharmacy (idpharmacy)
+) ENGINE=InnoDB AUTO_INCREMENT=2600 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Резервирование лекарства';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO order VALUES (1,'ул. Николая Отрады, 17, Волгоград, Волгоградская обл., 400125','2020-11-22',10,'done',1,1,1);
+INSERT INTO order VALUES (2,'Центральный р-н, Волгоград, Волгоградская обл., 400066','2020-09-12',2,'in progress',2,2,2);
+INSERT INTO order VALUES (3,'Краснооктябрьский р-н, Волгоград, Волгоградская обл., 400078','2020-09-01',4,'waiting',3,3,3);
+INSERT INTO order VALUES (4,'ул. Еременко, 52, Волгоград, Волгоградская обл., 400123','2020-10-22',2,'in progress',4,4,4);
+INSERT INTO order VALUES (5,'ул. Аджарская, 49, Волгоград, Волгоградская обл., 400119','2020-11-02',35,'done',5,5,5);
+INSERT INTO order VALUES (6,'просп. Ленина, 44, Волжский, Волгоградская обл., 404110','2020-11-02',1,'in progress',6,6,6);
+INSERT INTO order VALUES (7,'просп. Ленина, 44, Волжский, Волгоградская обл., 404110','2020-09-16',20,'waiting',7,5,6);
+INSERT INTO order VALUES (8,'просп. Университетский, д. 96, Волгоград, Волгоградская обл., 400062','2020-05-22',1,'in progress',8,2,2);
+INSERT INTO order VALUES (9,'Набережная ул., 77, Волжский, Волгоградская обл., 404111','2020-09-14',18,'done',9,1,3);
+INSERT INTO order VALUES (10,'Портовый пер., 1, Калач-на-Дону, Волгоградская обл., 404507','2020-10-02',23,'done',10,2,1);
+INSERT INTO order VALUES (11,'ул. Мелиоративная, 10, Светлый Яр, Волгоградская обл., 414161','2020-10-12',7,'in progress',11,4,2);
+INSERT INTO order VALUES (12,'Набережная ул., 72, Волжский, Волгоградская обл., 404110','2020-12-12',24,'in progress',2,3,6);
+INSERT INTO order VALUES (13,'ул. Николая Отрады, 17, Волгоград, Волгоградская обл.,400125','2020-12-15',32,'done',2,1,1);
+INSERT INTO order VALUES (14,'ул. Николая Отрады, 18, Волгоград, Волгоградская обл., 400123','2020-12-15',20,'waiting',1,1,1);
+INSERT INTO order VALUES (15,'ул. Николая Отрады, 19, Волгоград, Волгоградская обл., 400122','2020-12-15',14,'in progress',3,1,2);
+INSERT INTO order VALUES (16,'ул. Николая Отрады, 11, Волгоград, Волгоградская обл., 400121','2020-12-15',100,'in progress',4,2,3);
+INSERT INTO order VALUES (17,'ул. Николая Отрады, 10, Волгоград, Волгоградская обл., 400120','2020-12-15',32,'in progress',5,2,2);
+INSERT INTO order VALUES (18,'ул. Николая Отрады, 12, Волгоград, Волгоградская обл., 400111','2020-12-15',20,'in progress',6,2,2);
+INSERT INTO order VALUES (19,'ул. Николая Отрады, 15, Волгоград, Волгоградская обл., 400112','2020-12-15',14,'done',1,2,1);
+INSERT INTO order VALUES (20,'ул. Николая Отрады, 22, Волгоград, Волгоградская обл., 400113','2020-12-15',100,'waiting',1,2,3);
+INSERT INTO order VALUES (21,'ул. Николая Отрады, 23, Волгоград, Волгоградская обл., 400114','2020-12-15',14,'in progress',2,3,3);
+INSERT INTO order VALUES (22,'ул. Николая Отрады, 24, Волгоград, Волгоградская обл., 400115','2020-12-15',2,'done',2,3,4);
+INSERT INTO order VALUES (23,'ул. Николая Отрады, 125, Волгоград, Волгоградская обл., 400175','2020-12-15',15,'done',3,1,4);
+INSERT INTO order VALUES (24,'ул. Николая Отрады, 26, Волгоград, Волгоградская обл., 400165','2020-12-15',15,'in progress',4,1,5);
+INSERT INTO order VALUES (25,'ул. Николая Отрады, 75, Волгоград, Волгоградская обл., 400185','2020-12-15',100,'in progress',7,2,5);
+INSERT INTO order VALUES (26,'ул. Николая Отрады, 1, Волгоград, Волгоградская обл., 400195','2020-12-15',20,'in progress',6,5,6);
+INSERT INTO order VALUES (27,'ул. Николая Отрады, 7, Волгоград, Волгоградская обл., 400105','2020-12-15',100,'in progress',6,5,7);
+INSERT INTO order VALUES (28,'ул. Николая Отрады, 92, Волгоград, Волгоградская обл., 400225','2020-12-15',14,'in progress',5,5,6);
+INSERT INTO order VALUES (29,'ул. Николая Отрады, 65, Волгоград, Волгоградская обл., 400325','2020-12-15',15,'in progress',4,6,6);
+INSERT INTO order VALUES (30,'ул. Николая Отрады, 45, Волгоград, Волгоградская обл., 400425','2020-12-15',2,'in progress',5,7,6);
+INSERT INTO order VALUES (31,'ул. Николая Отрады, 46, Волгоград, Волгоградская обл., 400525','2020-12-15',15,'in progress',4,8,2);
+INSERT INTO order VALUES (32,'ул. Николая Отрады, 48, Волгоград, Волгоградская обл., 400625','2020-12-15',32,'waiting',3,9,1);
+INSERT INTO order VALUES (33,'ул. Мелиоративная, 10, Светлый Яр, Волгоградская обл., 414161','2020-12-15',51,'in progress',12,4,7);
+INSERT INTO order VALUES (34,'ул. Еременко, 21, Волгоград, Волгоградская обл., 401123','2020-12-14',2,'waiting',1,1,4);
+INSERT INTO order VALUES (35,'ул. Еременко, 42, Волгоград, Волгоградская обл., 402123','2020-12-13',22,'done',2,2,2);
+INSERT INTO order VALUES (36,'ул. Еременко, 33, Волгоград, Волгоградская обл., 403123','2020-02-11',41,'in progress',3,4,1);
+INSERT INTO order VALUES (37,'ул. Еременко, 11, Волгоград, Волгоградская обл., 404123','2020-10-22',1,'in progress',3,3,5);
+INSERT INTO order VALUES (38,'Набережная ул., 77, Волжский, Волгоградская обл., 404112','2020-06-14',18,'done',9,3,4);
+INSERT INTO order VALUES (39,'Набережная ул., 72, Волжский, Волгоградская обл., 404115','2020-02-14',18,'waiting',1,2,2);
+INSERT INTO order VALUES (40,'Набережная ул., 76, Волжский, Волгоградская обл., 404117','2020-03-14',18,'done',2,5,1);
+INSERT INTO order VALUES (41,'Набережная ул., 12, Волжский, Волгоградская обл., 404119','2020-09-14',18,'in progress',6,5,3);
+INSERT INTO order VALUES (42,'Набережная ул., 98, Волжский, Волгоградская обл., 404121','2020-02-14',18,'in progress',7,1,1);
+INSERT INTO order VALUES (43,'ул. Еременко, 01, Волгоград, Волгоградская обл., 403129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (44,'просп. Ленина, 44, Волжский, Волгоградская обл., 404112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (45,'просп. Ленина, 45, Волжский, Волгоградская обл., 404111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (46,'просп. Ленина, 46, Волжский, Волгоградская обл., 404113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (47,'просп. Ленина, 47, Волжский, Волгоградская обл., 404114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (48,'просп. Ленина, 48, Волжский, Волгоградская обл., 404115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (49,'просп. Ленина, 49, Волжский, Волгоградская обл., 404116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (50,'просп. Ленина, 54, Волжский, Волгоградская обл., 404117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (51,'просп. Ленина, 53, Волжский, Волгоградская обл., 404118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (52,'просп. Ленина, 43, Волжский, Волгоградская обл., 404119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (53,'просп. Ленина, 42, Волжский, Волгоградская обл., 404129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (54,'просп. Ленина, 41, Волжский, Волгоградская обл., 404121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (55,'просп. Ленина, 32, Волжский, Волгоградская обл., 404122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (56,'просп. Ленина, 32, Волжский, Волгоградская обл., 404123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (57,'просп. Ленина, 29, Волжский, Волгоградская обл., 404124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (58,'просп. Ленина, 28, Волжский, Волгоградская обл., 404125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (59,'просп. Ленина, 27, Волжский, Волгоградская обл., 404126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (60,'просп. Ленина, 26, Волжский, Волгоградская обл., 404127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (61,'просп. Ленина, 25, Волжский, Волгоградская обл., 404128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (62,'просп. Ленина, 24, Волжский, Волгоградская обл., 404129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (63,'просп. Ленина, 23, Волжский, Волгоградская обл., 404123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (64,'просп. Ленина, 22, Волжский, Волгоградская обл., 404123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (65,'просп. Ленина, 21, Волжский, Волгоградская обл., 40411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (66,'просп. Ленина, 20, Волжский, Волгоградская обл., 404110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (67,'просп. Ленина, 11, Волжский, Волгоградская обл., 404110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (68,'просп. Ленина, 12, Волжский, Волгоградская обл., 404110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (69,'просп. Ленина, 13, Волжский, Волгоградская обл., 404110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (70,'просп. Ленина, 14, Волжский, Волгоградская обл., 404110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (71,'просп. Ленина, 15, Волжский, Волгоградская обл., 404110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (72,'просп. Ленина, 16, Волжский, Волгоградская обл., 404110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (73,'просп. Ленина, 17, Волжский, Волгоградская обл., 404110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (74,'просп. Ленина, 1, Волжский, Волгоградская обл., 404110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (75,'просп. Ленина, 2, Волжский, Волгоградская обл., 404110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (76,'просп. Ленина, 3, Волжский, Волгоградская обл., 404110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (77,'просп. Ленина, 4, Волжский, Волгоградская обл., 404110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (78,'просп. Ленина, 5, Волжский, Волгоградская обл., 404110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (79,'просп. Ленина, 6, Волжский, Волгоградская обл., 404110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (80,'просп. Метталургов, 44, Волжский, Волгоградская обл., 504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (81,'просп. Метталургов, 45, Волжский, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (82,'просп. Метталургов, 46, Волжский, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (83,'просп. Метталургов, 47, Волжский, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (84,'просп. Метталургов, 48, Волжский, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (85,'просп. Метталургов, 49, Волжский, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (86,'просп. Метталургов, 54, Волжский, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (87,'просп. Метталургов, 53, Волжский, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (88,'просп. Метталургов, 43, Волжский, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (89,'просп. Метталургов, 42, Волжский, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (90,'просп. Метталургов, 41, Волжский, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (91,'просп. Метталургов, 32, Волжский, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (92,'просп. Метталургов, 32, Волжский, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (93,'просп. Метталургов, 29, Волжский, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (94,'просп. Метталургов, 28, Волжский, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (95,'просп. Метталургов, 27, Волжский, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (96,'просп. Метталургов, 26, Волжский, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (97,'просп. Метталургов, 25, Волжский, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (98,'просп. Метталургов, 24, Волжский, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (99,'просп. Метталургов, 23, Волжский, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (100,'просп. Метталургов, 22, Волжский, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (101,'просп. Метталургов, 21, Волжский, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (102,'просп. Метталургов, 20, Волжский, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (103,'просп. Метталургов, 11, Волжский, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (104,'просп. Метталургов, 12, Волжский, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (105,'просп. Метталургов, 13, Волжский, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (106,'просп. Метталургов, 14, Волжский, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (107,'просп. Метталургов, 15, Волжский, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (108,'просп. Метталургов, 16, Волжский, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (109,'просп. Метталургов, 17, Волжский, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (110,'просп. Метталургов, 1, Волжский, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (111,'просп. Метталургов, 2, Волжский, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (112,'просп. Метталургов, 3, Волжский, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (113,'просп. Метталургов, 4, Волжский, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (114,'просп. Метталургов, 5, Волжский, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (115,'просп. Метталургов, 6, Волжский, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (116,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (117,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (118,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (119,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (120,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (121,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (122,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (123,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (124,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (125,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (126,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (127,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (128,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (129,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (130,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (131,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (132,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (133,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (134,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (135,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (136,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (137,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (138,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (139,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (140,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (141,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (142,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (143,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (144,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (145,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (146,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (147,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (148,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (149,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (150,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (151,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (152,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (153,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (154,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (155,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (156,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (157,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (158,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (159,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (160,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (161,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (162,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (163,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (164,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (165,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (166,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (167,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (168,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (169,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (170,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (171,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (172,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (173,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (174,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (175,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (176,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (177,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (178,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (179,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (180,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (181,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (182,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (183,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (184,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (185,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (186,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (187,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (188,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (189,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (190,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (191,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (192,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (193,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (194,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (195,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (196,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (197,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (198,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (199,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (200,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (201,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (202,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (203,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (204,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (205,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (206,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (207,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (208,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (209,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (210,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (211,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (212,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (213,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (214,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (215,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (216,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (217,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (218,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (219,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (220,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (221,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (222,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (223,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (224,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (225,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (226,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (227,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (228,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (229,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (230,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (231,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (232,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (233,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (234,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (235,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (236,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (237,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (238,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (239,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (240,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (241,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (242,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (243,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (244,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (245,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (246,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (247,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (248,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (249,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (250,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (251,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (252,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (253,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (254,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (255,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (256,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (257,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (258,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (259,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (260,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (261,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (262,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (263,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (264,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (265,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (266,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (267,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (268,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (269,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (270,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (271,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (272,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (273,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (274,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (275,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (276,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (277,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (278,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (279,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (280,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (281,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (282,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (283,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (284,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (285,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (286,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (287,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (288,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (289,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (290,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (291,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (292,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (293,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (294,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (295,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (296,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (297,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (298,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (299,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (300,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (301,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (302,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (303,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (304,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (305,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (306,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (307,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (308,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (309,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (310,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (311,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (312,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (313,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (314,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (315,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (316,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (317,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (318,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (319,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (320,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (321,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (322,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (323,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (324,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (325,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (326,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (327,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (328,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (329,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (330,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (331,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (332,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (333,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (334,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (335,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (336,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (337,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (338,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (339,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (340,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (341,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (342,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (343,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (344,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (345,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (346,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (347,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (348,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (349,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (350,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (351,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (352,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (353,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (354,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (355,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (356,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (357,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (358,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (359,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (360,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (361,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (362,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (363,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (364,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (365,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (366,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (367,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (368,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (369,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (370,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (371,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (372,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (373,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (374,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (375,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (376,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (377,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (378,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (379,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (380,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (381,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (382,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (383,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (384,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (385,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (386,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (387,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (388,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (389,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (390,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (391,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (392,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (393,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (394,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (395,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (396,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (397,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (398,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (399,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (400,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (401,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (402,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (403,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (404,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (405,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (406,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (407,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (408,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (409,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (410,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (411,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (412,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (413,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (414,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (415,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (416,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (417,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (418,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (419,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (420,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (421,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (422,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (423,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (424,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (425,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (426,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (427,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (428,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (429,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (430,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (431,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (432,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (433,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (434,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (435,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (436,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (437,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (438,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (439,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (440,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (441,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (442,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (443,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (444,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (445,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (446,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (447,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (448,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (449,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (450,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (451,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (452,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (453,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (454,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (455,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (456,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (457,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (458,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (459,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (460,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (461,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (462,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (463,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (464,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (465,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (466,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (467,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (468,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (469,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (470,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (471,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (472,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (473,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (474,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (475,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (476,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (477,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (478,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (479,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (480,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (481,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (482,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (483,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (484,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (485,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (486,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (487,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (488,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (489,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (490,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (491,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (492,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (493,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (494,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (495,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (496,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (497,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (498,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (499,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (500,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (501,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (502,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (503,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (504,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (505,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (506,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (507,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (508,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (509,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (510,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (511,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (512,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (513,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (514,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (515,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (516,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (517,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (518,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (519,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (520,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (521,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (522,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (523,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (524,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (525,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (526,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (527,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (528,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (529,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (530,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (531,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (532,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (533,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (534,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (535,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (536,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (537,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (538,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (539,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (540,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (541,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (542,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (543,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (544,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (545,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (546,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (547,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (548,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (549,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (550,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (551,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (552,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (553,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (554,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (555,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (556,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (557,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (558,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (559,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (560,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (561,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (562,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (563,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (564,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (565,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (566,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (567,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (568,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (569,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (570,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (571,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (572,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (573,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (574,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (575,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (576,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (577,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (578,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (579,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (580,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (581,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (582,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (583,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (584,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (585,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (586,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (587,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (588,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (589,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (590,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (591,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (592,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (593,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (594,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (595,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (596,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (597,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (598,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (599,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (600,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (601,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (602,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (603,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (604,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (605,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (606,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (607,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (608,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (609,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (610,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (611,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (612,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (613,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (614,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (615,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (616,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (617,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (618,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (619,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (620,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (621,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (622,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (623,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (624,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (625,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (626,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (627,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (628,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (629,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (630,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (631,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (632,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (633,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (634,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (635,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (636,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (637,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (638,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (639,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (640,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (641,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (642,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (643,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (644,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (645,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (646,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (647,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (648,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (649,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (650,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (651,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (652,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (653,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (654,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (655,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (656,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (657,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (658,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (659,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (660,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (661,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (662,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (663,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (664,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (665,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (666,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (667,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (668,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (669,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (670,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (671,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (672,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (673,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (674,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (675,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (676,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (677,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (678,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (679,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (680,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (681,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (682,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (683,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (684,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (685,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (686,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (687,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (688,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (689,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (690,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (691,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (692,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (693,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (694,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (695,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (696,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (697,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (698,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (699,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (700,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (701,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (702,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (703,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (704,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (705,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (706,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (707,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (708,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (709,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (710,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (711,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (712,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (713,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (714,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (715,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (716,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (717,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (718,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (719,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (720,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (721,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (722,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (723,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (724,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (725,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (726,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (727,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (728,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (729,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (730,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (731,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (732,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (733,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (734,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (735,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (736,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (737,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (738,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (739,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (740,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (741,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (742,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (743,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (744,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (745,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (746,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (747,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (748,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (749,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (750,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (751,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (752,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (753,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (754,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (755,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (756,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (757,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (758,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (759,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (760,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (761,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (762,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (763,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (764,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (765,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (766,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (767,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (768,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (769,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (770,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (771,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (772,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (773,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (774,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (775,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (776,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (777,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (778,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (779,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (780,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (781,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (782,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (783,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (784,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (785,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (786,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (787,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (788,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (789,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (790,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (791,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (792,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (793,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (794,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (795,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (796,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (797,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (798,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (799,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (800,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (801,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (802,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (803,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (804,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (805,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (806,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (807,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (808,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (809,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (810,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (811,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (812,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (813,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (814,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (815,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (816,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (817,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (818,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (819,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (820,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (821,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (822,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (823,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (824,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (825,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (826,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (827,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (828,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (829,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (830,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (831,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (832,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (833,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (834,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (835,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (836,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (837,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (838,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (839,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (840,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (841,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (842,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (843,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (844,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (845,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (846,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (847,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (848,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (849,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (850,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (851,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (852,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (853,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (854,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (855,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (856,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (857,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (858,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (859,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (860,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (861,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (862,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (863,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (864,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (865,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (866,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (867,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (868,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (869,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (870,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (871,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (872,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (873,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'in progress',1,1,4);
+INSERT INTO order VALUES (874,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,1,4);
+INSERT INTO order VALUES (875,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (876,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (877,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (878,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (879,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (880,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (881,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (882,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (883,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (884,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (885,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (886,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (887,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'in progress',9,1,4);
+INSERT INTO order VALUES (888,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (889,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (890,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (891,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (892,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (893,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (894,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (895,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (896,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (897,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (898,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (899,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (900,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (901,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (902,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (903,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (904,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (905,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (906,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (907,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (908,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (909,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (910,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (911,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (912,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (913,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (914,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (915,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (916,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (917,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (918,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (919,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (920,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (921,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (922,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (923,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (924,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (925,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (926,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (927,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (928,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (929,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (930,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (931,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (932,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (933,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (934,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (935,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (936,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (937,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (938,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (939,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (940,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (941,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (942,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (943,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (944,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (945,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (946,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (947,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (948,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (949,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (950,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (951,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (952,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (953,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (954,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (955,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (956,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (957,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (958,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (959,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (960,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (961,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (962,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (963,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (964,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (965,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (966,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (967,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (968,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (969,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (970,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (971,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (972,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (973,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (974,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (975,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (976,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (977,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (978,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (979,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (980,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (981,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (982,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (983,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (984,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (985,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (986,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (987,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (988,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (989,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (990,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (991,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (992,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (993,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (994,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (995,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (996,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (997,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (998,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (999,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1000,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1001,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1002,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1003,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1004,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1005,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1006,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1007,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1008,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1009,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1010,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1011,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1012,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1013,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1014,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1015,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1016,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1017,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1018,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1019,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1020,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1021,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1022,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1023,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1024,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1025,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1026,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1027,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1028,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1029,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1030,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1031,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1032,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1033,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1034,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1035,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1036,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1037,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1038,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1039,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1040,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1041,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1042,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1043,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1044,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1045,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1046,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1047,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1048,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1049,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1050,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1051,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1052,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1053,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1054,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1055,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1056,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1057,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1058,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1059,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1060,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1061,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1062,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1063,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1064,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1065,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1066,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1067,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1068,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1069,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1070,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1071,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1072,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1073,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1074,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1075,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1076,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1077,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1078,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1079,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1080,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1081,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1082,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1083,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1084,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1085,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1086,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1087,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1088,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1089,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1090,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1091,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1092,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1093,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1094,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1095,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1096,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1097,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1098,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1099,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1100,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1101,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1102,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1103,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1104,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1105,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1106,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1107,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1108,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1109,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1110,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1111,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1112,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1113,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1114,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1115,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1116,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1117,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1118,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1119,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1120,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1121,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1122,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1123,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1124,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1125,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1126,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1127,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1128,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1129,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1130,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1131,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1132,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1133,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1134,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1135,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1136,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1137,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1138,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1139,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1140,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1141,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1142,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1143,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1144,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1145,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1146,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1147,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1148,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1149,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1150,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1151,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1152,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1153,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1154,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1155,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1156,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1157,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1158,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1159,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1160,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1161,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1162,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1163,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1164,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1165,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1166,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1167,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1168,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1169,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1170,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1171,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1172,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1173,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1174,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1175,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1176,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1177,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1178,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1179,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1180,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1181,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1182,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1183,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1184,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1185,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1186,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1187,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1188,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1189,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1190,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1191,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1192,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1193,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1194,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1195,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1196,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1197,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1198,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1199,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1200,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1201,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1202,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1203,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1204,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1205,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1206,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1207,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1208,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1209,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1210,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1211,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1212,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1213,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1214,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1215,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1216,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1217,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1218,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1219,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1220,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1221,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1222,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1223,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1224,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1225,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1226,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1227,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1228,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1229,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1230,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1231,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1232,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1233,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1234,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1235,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1236,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1237,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1238,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1239,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1240,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1241,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1242,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1243,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1244,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1245,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1246,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1247,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1248,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1249,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1250,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1251,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1252,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1253,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1254,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1255,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1256,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1257,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1258,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1259,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1260,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1261,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1262,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1263,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1264,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1265,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1266,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1267,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1268,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1269,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1270,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1271,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1272,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1273,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1274,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1275,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1276,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1277,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1278,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1279,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1280,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1281,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1282,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1283,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1284,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1285,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1286,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1287,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1288,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1289,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1290,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1291,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1292,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1293,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1294,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1295,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1296,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1297,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1298,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1299,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1300,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1301,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1302,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1303,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1304,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1305,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1306,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1307,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1308,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1309,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1310,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1311,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1312,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1313,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1314,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1315,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1316,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1317,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1318,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1319,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1320,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1321,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1322,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1323,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1324,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1325,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1326,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1327,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1328,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1329,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1330,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1331,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1332,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1333,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1334,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1335,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1336,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1337,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1338,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1339,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1340,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1341,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1342,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1343,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1344,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1345,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1346,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1347,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1348,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1349,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1350,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1351,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1352,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1353,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1354,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1355,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1356,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1357,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1358,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1359,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1360,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1361,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1362,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1363,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1364,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1365,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1366,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1367,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1368,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1369,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1370,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1371,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1372,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1373,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1374,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1375,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1376,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1377,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1378,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1379,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1380,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1381,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1382,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1383,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1384,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1385,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1386,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1387,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1388,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1389,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1390,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1391,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1392,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1393,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1394,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1395,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1396,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1397,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1398,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1399,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1400,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1401,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1402,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1403,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1404,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1405,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1406,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1407,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1408,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1409,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1410,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1411,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1412,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1413,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1414,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1415,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1416,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1417,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1418,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1419,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1420,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1421,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1422,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1423,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1424,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1425,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1426,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1427,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1428,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1429,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1430,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1431,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1432,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1433,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1434,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1435,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1436,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1437,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1438,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1439,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1440,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1441,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1442,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1443,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1444,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1445,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1446,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1447,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1448,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1449,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1450,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1451,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1452,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1453,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1454,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1455,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1456,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1457,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1458,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1459,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1460,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1461,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1462,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1463,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1464,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1465,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1466,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1467,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1468,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1469,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1470,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1471,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1472,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1473,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1474,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1475,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1476,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1477,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1478,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1479,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1480,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1481,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1482,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1483,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1484,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1485,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1486,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1487,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1488,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1489,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1490,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1491,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1492,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1493,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1494,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1495,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1496,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1497,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1498,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1499,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1500,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1501,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1502,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1503,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1504,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1505,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1506,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1507,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1508,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1509,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1510,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1511,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1512,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1513,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1514,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1515,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1516,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1517,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1518,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1519,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1520,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1521,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1522,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1523,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1524,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1525,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1526,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1527,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1528,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1529,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1530,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1531,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1532,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1533,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1534,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1535,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1536,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1537,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1538,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1539,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1540,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1541,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1542,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1543,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1544,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1545,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1546,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1547,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1548,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1549,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1550,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1551,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1552,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1553,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1554,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1555,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1556,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1557,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1558,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1559,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1560,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1561,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1562,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1563,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1564,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1565,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1566,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1567,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1568,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1569,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1570,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1571,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1572,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1573,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1574,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1575,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1576,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1577,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1578,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1579,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1580,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1581,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1582,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1583,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1584,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1585,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1586,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1587,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1588,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1589,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1590,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1591,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1592,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1593,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1594,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1595,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1596,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1597,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1598,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1599,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1600,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1601,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1602,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1603,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1604,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1605,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1606,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1607,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1608,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1609,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1610,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1611,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1612,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1613,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1614,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1615,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1616,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1617,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1618,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1619,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1620,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1621,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1622,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1623,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1624,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1625,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1626,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1627,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1628,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1629,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1630,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1631,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1632,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1633,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1634,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1635,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1636,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1637,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1638,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1639,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1640,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1641,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1642,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1643,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1644,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1645,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1646,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1647,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1648,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1649,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1650,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1651,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1652,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1653,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1654,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1655,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1656,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1657,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1658,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1659,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1660,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1661,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1662,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1663,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1664,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1665,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1666,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1667,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1668,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1669,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1670,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1671,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1672,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1673,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1674,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1675,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1676,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1677,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1678,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1679,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1680,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1681,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1682,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1683,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1684,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1685,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1686,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1687,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1688,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1689,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1690,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1691,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1692,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1693,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1694,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1695,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1696,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1697,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1698,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1699,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1700,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1701,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1702,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1703,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1704,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1705,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1706,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1707,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1708,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1709,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1710,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1711,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1712,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1713,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1714,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1715,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1716,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1717,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1718,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1719,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1720,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1721,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1722,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1723,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1724,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1725,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1726,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1727,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1728,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1729,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1730,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1731,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1732,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1733,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1734,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1735,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1736,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1737,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1738,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1739,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1740,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1741,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1742,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1743,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1744,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1745,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1746,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1747,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1748,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1749,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1750,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1751,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1752,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1753,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1754,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1755,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1756,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1757,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1758,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1759,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1760,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1761,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1762,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1763,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1764,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1765,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1766,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1767,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1768,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1769,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1770,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1771,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1772,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1773,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1774,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1775,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1776,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1777,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1778,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1779,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1780,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1781,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1782,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1783,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1784,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1785,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1786,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1787,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1788,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1789,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1790,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1791,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1792,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1793,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1794,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1795,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1796,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1797,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1798,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1799,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1800,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1801,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1802,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1803,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1804,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1805,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1806,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1807,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1808,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1809,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1810,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1811,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1812,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1813,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1814,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1815,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1816,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1817,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1818,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1819,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1820,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1821,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1822,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1823,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1824,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1825,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1826,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1827,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1828,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1829,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1830,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1831,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1832,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1833,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1834,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1835,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1836,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1837,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1838,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1839,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1840,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1841,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1842,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1843,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1844,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1845,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1846,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1847,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1848,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1849,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1850,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1851,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1852,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1853,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1854,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1855,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1856,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1857,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1858,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1859,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1860,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1861,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1862,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1863,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1864,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1865,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1866,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1867,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1868,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1869,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1870,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1871,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1872,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1873,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1874,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1875,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1876,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1877,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1878,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1879,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1880,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1881,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1882,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1883,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1884,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1885,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1886,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1887,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1888,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1889,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1890,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1891,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1892,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1893,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1894,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1895,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1896,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1897,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1898,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1899,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1900,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1901,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1902,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1903,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1904,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1905,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1906,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1907,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1908,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1909,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1910,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1911,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1912,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1913,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1914,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1915,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1916,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1917,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1918,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1919,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1920,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1921,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1922,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1923,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1924,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1925,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1926,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1927,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1928,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1929,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1930,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1931,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1932,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1933,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1934,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1935,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1936,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1937,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1938,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1939,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1940,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1941,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1942,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1943,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1944,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1945,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1946,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1947,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1948,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1949,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1950,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1951,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1952,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1953,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1954,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1955,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1956,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1957,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1958,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1959,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1960,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1961,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1962,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1963,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (1964,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1965,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1966,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1967,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (1968,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (1969,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1970,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (1971,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (1972,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1973,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (1974,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1975,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1976,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1977,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1978,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1979,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1980,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1981,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (1982,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1983,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1984,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (1985,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (1986,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1987,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1988,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (1989,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (1990,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (1991,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1992,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (1993,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (1994,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (1995,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (1996,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (1997,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (1998,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (1999,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2000,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2001,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2002,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2003,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2004,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2005,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2006,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2007,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2008,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2009,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2010,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2011,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2012,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2013,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2014,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2015,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2016,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2017,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2018,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2019,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2020,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2021,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2022,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2023,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2024,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2025,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2026,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2027,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2028,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2029,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2030,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2031,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2032,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2033,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2034,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2035,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2036,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2037,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2038,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2039,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2040,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2041,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2042,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2043,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2044,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2045,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2046,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2047,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2048,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2049,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2050,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2051,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2052,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2053,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2054,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2055,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2056,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2057,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2058,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2059,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2060,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2061,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2062,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2063,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2064,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2065,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2066,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2067,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2068,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2069,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2070,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2071,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2072,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2073,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2074,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2075,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2076,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2077,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2078,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2079,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2080,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2081,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2082,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2083,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2084,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2085,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2086,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2087,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2088,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2089,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2090,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2091,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2092,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2093,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2094,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2095,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2096,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2097,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2098,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2099,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2100,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2101,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2102,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2103,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2104,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2105,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2106,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2107,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2108,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2109,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2110,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2111,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2112,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2113,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2114,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2115,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2116,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2117,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2118,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2119,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2120,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2121,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2122,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2123,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2124,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2125,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2126,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2127,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2128,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2129,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2130,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2131,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2132,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2133,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2134,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2135,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2136,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2137,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2138,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2139,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2140,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2141,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2142,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2143,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2144,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2145,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2146,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2147,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2148,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2149,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2150,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2151,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2152,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2153,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2154,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2155,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2156,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2157,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2158,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2159,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2160,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2161,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2162,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2163,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2164,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2165,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2166,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2167,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2168,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2169,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2170,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2171,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2172,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2173,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2174,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2175,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2176,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2177,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2178,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2179,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2180,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2181,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2182,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2183,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2184,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2185,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2186,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2187,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2188,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2189,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2190,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2191,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2192,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2193,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2194,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2195,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2196,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2197,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2198,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2199,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2200,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2201,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2202,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2203,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2204,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2205,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2206,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2207,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2208,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2209,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2210,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2211,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2212,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2213,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2214,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2215,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2216,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2217,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2218,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2219,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2220,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2221,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2222,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2223,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2224,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2225,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2226,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2227,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2228,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2229,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2230,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2231,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2232,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2233,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2234,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2235,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2236,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2237,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2238,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2239,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2240,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2241,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2242,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2243,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2244,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2245,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2246,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2247,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2248,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2249,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2250,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2251,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2252,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2253,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2254,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2255,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2256,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2257,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2258,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2259,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2260,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2261,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2262,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2263,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2264,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2265,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2266,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2267,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2268,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2269,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2270,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2271,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2272,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2273,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2274,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2275,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2276,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2277,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2278,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2279,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2280,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2281,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2282,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2283,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2284,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2285,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2286,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2287,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2288,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2289,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2290,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2291,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2292,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2293,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2294,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2295,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2296,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2297,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2298,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2299,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2300,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2301,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2302,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2303,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2304,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2305,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2306,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2307,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2308,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2309,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2310,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2311,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2312,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2313,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2314,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2315,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2316,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2317,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2318,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2319,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2320,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2321,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2322,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2323,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2324,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2325,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2326,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2327,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2328,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2329,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2330,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2331,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2332,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2333,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2334,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2335,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2336,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2337,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2338,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2339,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2340,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2341,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2342,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2343,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2344,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2345,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2346,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2347,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2348,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2349,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2350,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2351,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2352,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2353,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2354,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2355,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2356,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2357,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2358,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2359,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2360,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2361,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2362,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2363,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2364,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2365,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2366,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2367,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2368,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2369,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2370,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2371,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2372,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2373,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2374,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2375,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2376,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2377,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2378,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2379,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2380,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2381,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2382,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2383,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2384,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2385,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2386,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2387,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2388,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2389,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2390,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2391,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2392,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2393,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2394,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2395,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2396,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2397,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2398,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2399,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2400,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2401,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2402,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2403,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2404,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2405,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2406,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2407,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2408,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2409,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2410,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2411,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2412,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2413,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2414,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2415,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2416,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2417,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2418,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2419,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2420,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2421,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2422,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2423,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2424,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2425,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2426,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2427,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2428,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2429,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2430,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2431,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2432,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2433,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2434,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2435,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2436,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2437,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2438,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2439,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2440,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2441,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2442,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2443,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2444,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2445,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2446,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2447,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2448,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2449,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2450,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2451,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2452,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2453,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2454,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2455,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2456,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2457,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2458,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2459,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2460,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2461,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2462,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2463,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2464,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2465,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2466,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2467,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2468,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2469,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2470,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2471,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2472,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2473,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2474,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2475,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2476,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2477,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2478,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2479,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2480,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2481,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2482,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2483,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2484,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2485,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2486,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2487,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2488,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2489,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2490,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2491,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2492,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2493,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2494,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2495,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2496,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2497,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2498,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2499,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2500,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2501,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2502,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2503,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2504,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2505,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2506,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2507,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2508,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2509,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2510,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2511,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2512,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2513,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2514,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2515,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2516,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2517,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2518,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2519,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2520,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2521,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2522,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2523,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2524,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2525,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2526,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2527,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2528,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2529,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2530,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2531,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2532,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2533,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2534,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2535,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2536,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2537,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2538,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2539,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2540,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2541,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2542,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2543,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2544,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2545,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2546,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2547,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2548,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2549,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2550,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2551,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2552,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2553,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2554,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2555,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2556,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2557,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2558,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2559,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2560,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2561,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2562,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2563,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2564,'просп.Метталургов, 44,Волгоград,Волгоградская обл.,504112','2020-12-15',12,'done',1,7,4);
+INSERT INTO order VALUES (2565,'просп. Метталургов, 45, Волгоград, Волгоградская обл., 504111','2020-02-14',12,'done',2,2,4);
+INSERT INTO order VALUES (2566,'просп. Метталургов, 46, Волгоград, Волгоградская обл., 504113','2020-12-15',42,'in progress',4,2,4);
+INSERT INTO order VALUES (2567,'просп. Метталургов, 47, Волгоград, Волгоградская обл., 504114','2020-02-14',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2568,'просп. Метталургов, 48, Волгоград, Волгоградская обл., 504115','2020-02-14',12,'in progress',6,2,4);
+INSERT INTO order VALUES (2569,'просп. Метталургов, 49, Волгоград, Волгоградская обл., 504116','2020-02-14',123,'in progress',2,1,4);
+INSERT INTO order VALUES (2570,'просп. Метталургов, 54, Волгоград, Волгоградская обл., 504117','2020-02-14',42,'in progress',4,1,4);
+INSERT INTO order VALUES (2571,'просп. Метталургов, 53, Волгоград, Волгоградская обл., 504118','2020-12-15',12,'in progress',5,1,4);
+INSERT INTO order VALUES (2572,'просп. Метталургов, 43, Волгоград, Волгоградская обл., 504119','2020-02-14',3,'in progress',2,1,4);
+INSERT INTO order VALUES (2573,'просп. Метталургов, 42, Волгоград, Волгоградская обл., 504129','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2574,'просп. Метталургов, 41, Волгоград, Волгоградская обл., 504121','2020-02-14',12,'done',2,1,4);
+INSERT INTO order VALUES (2575,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504122','2020-02-14',24,'in progress',2,1,4);
+INSERT INTO order VALUES (2576,'просп. Метталургов, 32, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2577,'просп. Метталургов, 29, Волгоград, Волгоградская обл., 504124','2020-12-15',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2578,'просп. Метталургов, 28, Волгоград, Волгоградская обл., 504125','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2579,'просп. Метталургов, 27, Волгоград, Волгоградская обл., 504126','2020-02-14',15,'waiting',9,1,4);
+INSERT INTO order VALUES (2580,'просп. Метталургов, 26, Волгоград, Волгоградская обл., 504127','2020-02-14',12,'in progress',7,1,4);
+INSERT INTO order VALUES (2581,'просп. Метталургов, 25, Волгоград, Волгоградская обл., 504128','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2582,'просп. Метталургов, 24, Волгоград, Волгоградская обл., 504129','2020-02-14',5,'in progress',2,1,4);
+INSERT INTO order VALUES (2583,'просп. Метталургов, 23, Волгоград, Волгоградская обл., 504123','2020-12-15',12,'in progress',1,1,4);
+INSERT INTO order VALUES (2584,'просп. Метталургов, 22, Волгоград, Волгоградская обл., 504123','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2585,'просп. Метталургов, 21, Волгоград, Волгоградская обл., 50411','2020-02-14',13,'in progress',2,1,4);
+INSERT INTO order VALUES (2586,'просп. Метталургов, 20, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2587,'просп. Метталургов, 11, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2588,'просп. Метталургов, 12, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2589,'просп. Метталургов, 13, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2590,'просп. Метталургов, 14, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2591,'просп. Метталургов, 15, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2592,'просп. Метталургов, 16, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2593,'просп. Метталургов, 17, Волгоград, Волгоградская обл., 504110','2020-02-14',19,'in progress',2,1,4);
+INSERT INTO order VALUES (2594,'просп. Метталургов, 1, Волгоград, Волгоградская обл., 554110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2595,'просп. Метталургов, 2, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2596,'просп. Метталургов, 3, Волгоград, Волгоградская обл., 504110','2020-02-14',55,'in progress',2,1,4);
+INSERT INTO order VALUES (2597,'просп. Метталургов, 4, Волгоград, Волгоградская обл., 504110','2020-12-15',234,'in progress',2,1,4);
+INSERT INTO order VALUES (2598,'просп. Метталургов, 5, Волгоград, Волгоградская обл., 504110','2020-02-14',12,'in progress',2,1,4);
+INSERT INTO order VALUES (2599,'просп. Метталургов, 6, Волгоград, Волгоградская обл., 504110','2020-12-15',12,'in progress',2,1,4);
+
+--
+-- Table structure for table `order type`
+--
+
+DROP TABLE IF EXISTS `order type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `order type` (
+  `idorder type` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  price int unsigned NOT NULL,
+  PRIMARY KEY (`idorder type`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order type`
+--
+
+INSERT INTO `order type` VALUES (1,'Почта России',140);
+INSERT INTO `order type` VALUES (2,'СДЭК',420);
+INSERT INTO `order type` VALUES (3,'СДЭК',370);
+INSERT INTO `order type` VALUES (4,'Самовывоз',0);
+INSERT INTO `order type` VALUES (5,'Деловые линии',250);
+INSERT INTO `order type` VALUES (6,'Деловые линии',430);
+INSERT INTO `order type` VALUES (7,'ПЭК',310);
+INSERT INTO `order type` VALUES (8,'ДПД',200);
+
+--
+-- Table structure for table `order_has_medicine`
+--
+
+DROP TABLE IF EXISTS order_has_medicine;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE order_has_medicine (
+  order_idorder int NOT NULL,
+  medicine_idmedicine int NOT NULL,
+  PRIMARY KEY (order_idorder,medicine_idmedicine),
+  KEY fk_order_has_medicine_medicine1_idx (medicine_idmedicine),
+  KEY fk_order_has_medicine_order1_idx (order_idorder),
+  CONSTRAINT fk_order_has_medicine_medicine1 FOREIGN KEY (medicine_idmedicine) REFERENCES medicine (idmedicine),
+  CONSTRAINT fk_order_has_medicine_order1 FOREIGN KEY (order_idorder) REFERENCES `order` (idorder)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_has_medicine`
+--
+
+INSERT INTO order_has_medicine VALUES (4,1);
+INSERT INTO order_has_medicine VALUES (1,2);
+INSERT INTO order_has_medicine VALUES (5,3);
+INSERT INTO order_has_medicine VALUES (1,4);
+INSERT INTO order_has_medicine VALUES (2,5);
+INSERT INTO order_has_medicine VALUES (3,5);
+INSERT INTO order_has_medicine VALUES (6,6);
+INSERT INTO order_has_medicine VALUES (7,7);
+INSERT INTO order_has_medicine VALUES (8,8);
+INSERT INTO order_has_medicine VALUES (11,10);
+INSERT INTO order_has_medicine VALUES (20,20);
+INSERT INTO order_has_medicine VALUES (21,22);
+INSERT INTO order_has_medicine VALUES (22,23);
+INSERT INTO order_has_medicine VALUES (23,24);
+INSERT INTO order_has_medicine VALUES (24,25);
+INSERT INTO order_has_medicine VALUES (25,26);
+INSERT INTO order_has_medicine VALUES (26,27);
+INSERT INTO order_has_medicine VALUES (27,28);
+INSERT INTO order_has_medicine VALUES (28,29);
+INSERT INTO order_has_medicine VALUES (30,36);
+INSERT INTO order_has_medicine VALUES (31,36);
+INSERT INTO order_has_medicine VALUES (32,36);
+INSERT INTO order_has_medicine VALUES (33,36);
+INSERT INTO order_has_medicine VALUES (34,36);
+INSERT INTO order_has_medicine VALUES (35,36);
+INSERT INTO order_has_medicine VALUES (36,36);
+INSERT INTO order_has_medicine VALUES (37,36);
+INSERT INTO order_has_medicine VALUES (38,36);
+INSERT INTO order_has_medicine VALUES (39,36);
+INSERT INTO order_has_medicine VALUES (40,36);
+INSERT INTO order_has_medicine VALUES (41,36);
+INSERT INTO order_has_medicine VALUES (42,36);
+INSERT INTO order_has_medicine VALUES (43,36);
+INSERT INTO order_has_medicine VALUES (44,36);
+INSERT INTO order_has_medicine VALUES (45,36);
+INSERT INTO order_has_medicine VALUES (46,36);
+INSERT INTO order_has_medicine VALUES (47,36);
+INSERT INTO order_has_medicine VALUES (48,36);
+
+--
+-- Table structure for table `patient`
+--
+
+DROP TABLE IF EXISTS patient;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE patient (
+  idPatient int NOT NULL AUTO_INCREMENT,
+  FIO varchar(45) NOT NULL,
+  Sex enum('Male','Female','Other') NOT NULL,
+  `Date of Birth` date NOT NULL,
+  Phone varchar(35) NOT NULL,
+  Diagnosis varchar(64) NOT NULL,
+  address_idadress int NOT NULL,
+  PRIMARY KEY (idPatient),
+  UNIQUE KEY phone (Phone),
+  KEY fk_patient_address1_idx (address_idadress),
+  KEY sex (Sex),
+  CONSTRAINT fk_patient_address1 FOREIGN KEY (address_idadress) REFERENCES address (idadress)
+) ENGINE=InnoDB AUTO_INCREMENT=3029 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Пациент';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `patient`
+--
+
+INSERT INTO patient VALUES (1,'Никифорова Элизабет Валерьяновна','Female','1999-04-05','+7 (970) 223-21-38','Растяжение',12);
+INSERT INTO patient VALUES (2,'Кузнецова Лали Валерьяновна','Female','1986-12-14','+7 (970) 493-32-38','Грипп',11);
+INSERT INTO patient VALUES (3,'Королёв Леонард Антонинович','Male','2008-01-23','+7 (910) 273-92-38','Растяжение',10);
+INSERT INTO patient VALUES (4,'R2D2','Other','2090-01-01','+999(003) 5','Поломка',9);
+INSERT INTO patient VALUES (5,'Ивлеев Арам Владимирович','Male','1970-08-04','+7 (970) 293-22-38','Отравление',8);
+INSERT INTO patient VALUES (6,'Смирнова Раиса Валерьевна','Female','1973-07-22','+7 (956) 936-93-40','Аллергия',7);
+INSERT INTO patient VALUES (7,'Поляков Баратолий Леонидович','Male','2001-03-22','+7 (951) 893-02-10','ОРВИ',6);
+INSERT INTO patient VALUES (8,'Чернышов Анахас Закирович','Male','1986-01-29','+7 (952) 878-77-54','ОРВИ',5);
+INSERT INTO patient VALUES (9,'Максимчук Алоизия Константиновна','Female','1971-04-15','+7 (915) 338-51-60','ОРВИ',4);
+INSERT INTO patient VALUES (10,'Дубровский Ланс Семенович','Male','1971-01-26','+7 (903) 033-29-43','Грипп',3);
+INSERT INTO patient VALUES (11,'Антонова Эшланд Петровна','Female','1980-12-29','+7 (988) 064-32-95','Аллергия',2);
+INSERT INTO patient VALUES (12,'Канаева Ренка Петровна','Female','1994-12-14','+7 (922) 679-54-82','Эпилепсия',1);
+INSERT INTO patient VALUES (13,'Отчет Пациент','Female','1994-02-14','+7 (922) 629-54-82','Аллергия',19);
+INSERT INTO patient VALUES (14,'Отчет Пациент 2','Male','2001-03-22','+7 (911) 679-54-82','ОРВИ',20);
+INSERT INTO patient VALUES (15,'User1','Male','2001-05-22','+7 (911) 679-54-81','Аллергия',2);
+INSERT INTO patient VALUES (2892,'User2','Male','2001-05-22','1','Аллергия',2);
+INSERT INTO patient VALUES (2893,'User3','Female','2001-05-12','2','Грипп',1);
+INSERT INTO patient VALUES (2894,'User4','Female','2001-01-22','+7 (911) 679-5er-82','Кашель',5);
+INSERT INTO patient VALUES (2895,'User2','Male','2001-05-22','+7 (911) 679-5481','Аллергия',2);
+INSERT INTO patient VALUES (2896,'User3','Female','2001-05-12','+7 (911) 679-54-72','Грипп',1);
+INSERT INTO patient VALUES (2897,'User4','Female','2001-01-22','+7 (911)54-82','Кашель',5);
+INSERT INTO patient VALUES (2898,'User2','Male','2001-05-22','+7 (911) 679-54-82d1','Аллергия',2);
+INSERT INTO patient VALUES (2899,'User3','Female','2001-05-12','+7 (911) 67-54-72','Грипп',1);
+INSERT INTO patient VALUES (2900,'User4','Female','2001-01-22','+7 (911) 679-54-81112','Кашель',5);
+INSERT INTO patient VALUES (2901,'User2','Male','2001-05-22','+7 (911) 679-541','Аллергия',2);
+INSERT INTO patient VALUES (2902,'User3','Female','2001-05-12','+7 (911) 679-54-7c42','Грипп',1);
+INSERT INTO patient VALUES (2903,'User4','Female','2001-01-22','+7 (911) 679-4-82','Кашель',5);
+INSERT INTO patient VALUES (2904,'User2','Male','2001-05-22','+7 (911) 679-5r4-81','Аллергия',2);
+INSERT INTO patient VALUES (2905,'User3','Female','2001-05-12','+7 (911) 679254-72','Грипп',1);
+INSERT INTO patient VALUES (2906,'User4','Female','2001-01-22','+7 (911) 679154-82','Кашель',5);
+INSERT INTO patient VALUES (2907,'User2','Male','2001-05-22','+7 (911) 679-5d-81','Аллергия',2);
+INSERT INTO patient VALUES (2908,'User3','Female','2001-05-12','+7 (911) 679x54-72','Грипп',1);
+INSERT INTO patient VALUES (2909,'User4','Female','2001-01-22','+7 (911) 679a54-82','Кашель',5);
+INSERT INTO patient VALUES (2910,'User2','Male','2001-05-22','+7 (911) 679-5v-81','Аллергия',2);
+INSERT INTO patient VALUES (2911,'User3','Female','2001-05-12','+7 (911) 679-n4-72','Грипп',1);
+INSERT INTO patient VALUES (2912,'User4','Female','2001-01-22','+7 (911) 679-542-82','Кашель',5);
+INSERT INTO patient VALUES (2913,'User2','Male','2001-05-22','+7 (911) 679-54-815','Аллергия',2);
+INSERT INTO patient VALUES (2914,'User3','Female','2001-05-12','+7 (911) 679-54-a2','Грипп',1);
+INSERT INTO patient VALUES (2915,'User4','Female','2001-01-22','+7 (911) 679-54s82','Кашель',5);
+INSERT INTO patient VALUES (2916,'User2','Male','2001-05-22','+7 (911) 679-54-f1','Аллергия',2);
+INSERT INTO patient VALUES (2917,'User3','Female','2001-05-12','+7 (911) 679-54ss-72','Грипп',1);
+INSERT INTO patient VALUES (2918,'User4','Female','2001-01-22','+7 (911) 679-54-8a2','Кашель',5);
+INSERT INTO patient VALUES (2919,'User2','Male','2001-05-22','+7 (911) 679-54-8f','Аллергия',2);
+INSERT INTO patient VALUES (2920,'User3','Female','2001-05-12','+7 (911) 679-54-fv72','Грипп',1);
+INSERT INTO patient VALUES (2921,'User4','Female','2001-01-22','+7 (911) 679-54-8a','Кашель',5);
+INSERT INTO patient VALUES (2922,'User2','Male','2001-05-22','+7 (911) 679-54-231','Аллергия',2);
+INSERT INTO patient VALUES (2923,'User3','Female','2001-05-12','+7 (911) 679-54qw72','Грипп',1);
+INSERT INTO patient VALUES (2924,'User4','Female','2001-01-22','+7 (911) 679-54-s2','Кашель',5);
+INSERT INTO patient VALUES (2925,'User2','Male','2001-05-22','+7 (911) 679-54-81cx','Аллергия',2);
+INSERT INTO patient VALUES (2926,'User3','Female','2001-05-12','+7 (911) 679-54-7zxc','Грипп',1);
+INSERT INTO patient VALUES (2927,'User4','Female','2001-01-22','+7 (911) 679-54-8b','Кашель',5);
+INSERT INTO patient VALUES (2928,'User2','Male','2001-05-22','+7 (9 679-w-81','Аллергия',2);
+INSERT INTO patient VALUES (2929,'User3','Female','2001-05-12','+7 (911) 679s54-72','Грипп',1);
+INSERT INTO patient VALUES (2930,'User4','Female','2001-01-22','+7 (911) 679vbb54-82','Кашель',5);
+INSERT INTO patient VALUES (2931,'User2','Male','2001-05-22','+7 (911) 679-54-cx1','Аллергия',2);
+INSERT INTO patient VALUES (2932,'User3','Female','2001-05-12','+7 (911) 679-5asd72','Грипп',1);
+INSERT INTO patient VALUES (2933,'User4','Female','2001-01-22','+7 (911) 679-54-1s2','Кашель',5);
+INSERT INTO patient VALUES (2934,'User2','Male','2001-05-22','+7 (911) 679-s4-81','Аллергия',2);
+INSERT INTO patient VALUES (2935,'User3','Female','2001-05-12','+7 (911) 67v54-72','Грипп',1);
+INSERT INTO patient VALUES (2936,'User4','Female','2001-01-22','+7 (911) 679-54-8fc2','Кашель',5);
+INSERT INTO patient VALUES (2937,'User2','Male','2001-05-22','+7 (911) 679-5xc81','Аллергия',2);
+INSERT INTO patient VALUES (2938,'User3','Female','2001-05-12','+7 (911) 679-542-72','Грипп',1);
+INSERT INTO patient VALUES (2939,'User4','Female','2001-01-22','+7 (911) 679123-82','Кашель',5);
+INSERT INTO patient VALUES (2940,'User2','Male','2001-05-22','+7 (911) 679-54eew1','Аллергия',2);
+INSERT INTO patient VALUES (2941,'User3','Female','2001-05-12','+7 (911) 679-5sda-72','Грипп',1);
+INSERT INTO patient VALUES (2942,'User4','Female','2001-01-22','+7 (911) 679-cxz-82','Кашель',5);
+INSERT INTO patient VALUES (2943,'User2','Male','2001-05-22','+7 (911) 679-53211','Аллергия',2);
+INSERT INTO patient VALUES (2944,'User3','Female','2001-05-12','+7 (911) 679-xcz14-72','Грипп',1);
+INSERT INTO patient VALUES (2945,'User4','Female','2001-01-22','+7 (911) 679-5we82','Кашель',5);
+INSERT INTO patient VALUES (2946,'User2','Male','2001-05-22','+7 (911) 679-5ds131','Аллергия',2);
+INSERT INTO patient VALUES (2947,'User3','Female','2001-05-12','+7 (9ds679-54-72','Грипп',1);
+INSERT INTO patient VALUES (2948,'User4','Female','2001-01-22','+7 (91sxc 679-54-82','Кашель',5);
+INSERT INTO patient VALUES (2949,'User2','Male','2001-05-22','+7 (911679-54-81','Аллергия',2);
+INSERT INTO patient VALUES (2950,'User3','Female','2001-05-12','+7 (9cx 679-54-72','Грипп',1);
+INSERT INTO patient VALUES (2951,'User4','Female','2001-01-22','+7 (91vc679-54-82','Кашель',5);
+INSERT INTO patient VALUES (2952,'User2','Male','2001-05-22','+7 (911) 64xz-54-81','Аллергия',2);
+INSERT INTO patient VALUES (2953,'User3','Female','2001-05-12','+7 (911) 267xcz-54-72','Грипп',1);
+INSERT INTO patient VALUES (2954,'User4','Female','2001-01-22','+7 (911) 6scxz54-82','Кашель',5);
+INSERT INTO patient VALUES (2955,'User2','Male','2001-05-22','+7 (911) 679rxvc-81','Аллергия',2);
+INSERT INTO patient VALUES (2956,'User3','Female','2001-05-12','+7 (911) 6zx54-72','Грипп',1);
+INSERT INTO patient VALUES (2957,'User4','Female','2001-01-22','+7 (911)12-54-82','Кашель',5);
+INSERT INTO patient VALUES (2958,'User2','Male','2001-05-22','+7 (911) 67cx54-81','Аллергия',2);
+INSERT INTO patient VALUES (2959,'User3','Female','2001-05-12','+7 (911) xz54-72','Грипп',1);
+INSERT INTO patient VALUES (2960,'User4','Female','2001-01-22','+7 (911) 6x-54-82','Кашель',5);
+INSERT INTO patient VALUES (2961,'User2','Male','2001-05-22','+7 (911) 679-cvc81','Аллергия',2);
+INSERT INTO patient VALUES (2962,'User3','Female','2001-05-12','+7 (911) zx-54-72','Грипп',1);
+INSERT INTO patient VALUES (2963,'User4','Female','2001-01-22','+7 (911) 6asd9-54-82','Кашель',5);
+INSERT INTO patient VALUES (2964,'User2','Male','2001-05-22','+7 (911) 67cvc224-81','Аллергия',2);
+INSERT INTO patient VALUES (2965,'User3','Female','2001-05-12','+7 (911) 67hj-72','Грипп',1);
+INSERT INTO patient VALUES (2966,'User4','Female','2001-01-22','+7 (911) 67vb4-82','Кашель',5);
+INSERT INTO patient VALUES (2967,'User2','Male','2001-05-22','+7 (911) 679-5xc1','Аллергия',2);
+INSERT INTO patient VALUES (2968,'User3','Female','2001-05-12','+7 (911) 679-mn-72','Грипп',1);
+INSERT INTO patient VALUES (2969,'User4','Female','2001-01-22','+7 (911) 679hf4-82','Кашель',5);
+INSERT INTO patient VALUES (2970,'User2','Male','2001-05-22','+7 (911) 679-5tyb4-72','Грипп',1);
+INSERT INTO patient VALUES (2971,'User4','Female','2001-01-22','+7 (911) 6bvc4-82','Кашель',5);
+INSERT INTO patient VALUES (2972,'User2','Male','2001-05-22','+7 (911) 679-54;;-81','Аллергия',2);
+INSERT INTO patient VALUES (2973,'User3','Female','2001-05-12','+7 (9gfv679-54-72','Грипп',1);
+INSERT INTO patient VALUES (2974,'User4','Female','2001-01-22','+7 (911) 67tr54-82','Кашель',5);
+INSERT INTO patient VALUES (2975,'User2','Male','2001-05-22','+7 (911) 67hg4-81','Аллергия',2);
+INSERT INTO patient VALUES (2976,'User3','Female','2001-05-12','+7 (911) 679-54-71232','Грипп',1);
+INSERT INTO patient VALUES (2977,'User4','Female','2001-01-22','+7 (911) 679-542312382','Кашель',5);
+INSERT INTO patient VALUES (2978,'User2','Male','2001-05-22','+7 (911) 679-54-812321','Аллергия',2);
+INSERT INTO patient VALUES (2979,'User3','Female','2001-05-12','+7 (911) 679-5431-72','Грипп',1);
+INSERT INTO patient VALUES (2980,'User4','Female','2001-01-22','+7 (911) 679-54sdads-82','Кашель',5);
+INSERT INTO patient VALUES (2981,'User2','Male','2001-05-22','+7 (911) 679-54sad-81','Аллергия',2);
+INSERT INTO patient VALUES (2982,'User3','Female','2001-05-12','+7 (911) 679-5412332-72','Грипп',1);
+INSERT INTO patient VALUES (2983,'User4','Female','2001-01-22','+7 (911) 679-54123-82','Кашель',5);
+INSERT INTO patient VALUES (2984,'User2','Male','2001-05-22','+7 (911) 679-54-8asdxcz1','Аллергия',2);
+INSERT INTO patient VALUES (2985,'User3','Female','2001-05-12','+7 (911) 679-54-123dxc72','Грипп',1);
+INSERT INTO patient VALUES (2986,'User4','Female','2001-01-22','+7 (911) 679-54-12382','Кашель',5);
+INSERT INTO patient VALUES (2987,'User2','Male','2001-05-22','+7 (911) 679-54sad81','Аллергия',2);
+INSERT INTO patient VALUES (2988,'User3','Female','2001-05-12','+7 (911) 679-d12e54-72','Грипп',1);
+INSERT INTO patient VALUES (2989,'User4','Female','2001-01-22','+7 (911) 679-5f4eqw4-82','Кашель',5);
+INSERT INTO patient VALUES (2990,'User2','Male','2001-05-22','+7 (911) 679-54ed12-81','Аллергия',2);
+INSERT INTO patient VALUES (2991,'User3','Female','2001-05-12','+7 (911) 679-54213d1-72','Грипп',1);
+INSERT INTO patient VALUES (2992,'User4','Female','2001-01-22','+7 (911) 4-82','Кашель',5);
+INSERT INTO patient VALUES (2993,'User2','Male','2001-05-22','+7 (911) 679dsx2-54-81','Аллергия',2);
+INSERT INTO patient VALUES (2994,'User3','Female','2001-05-12','+7 (911) 679-59994-72','Грипп',1);
+INSERT INTO patient VALUES (2995,'User4','Female','2001-01-22','+7 (911) 679-58884-82','Кашель',5);
+INSERT INTO patient VALUES (2996,'User2','Male','2001-05-22','+7 (911) 679-57774-81','Аллергия',2);
+INSERT INTO patient VALUES (2997,'User3','Female','2001-05-12','+7 (911) 679-56664-72','Грипп',1);
+INSERT INTO patient VALUES (2998,'User4','Female','2001-01-22','+7 (911) 679-55554-82','Кашель',5);
+INSERT INTO patient VALUES (2999,'User2','Male','2001-05-22','+7 (911) 679-54-4481','Аллергия',2);
+INSERT INTO patient VALUES (3000,'User3','Female','2001-05-12','+7 (911) 679-53334-72','Грипп',1);
+INSERT INTO patient VALUES (3001,'User4','Female','2001-01-22','+7 (911) 679-52224-82','Кашель',5);
+INSERT INTO patient VALUES (3002,'User2','Male','2001-05-22','+7 (911) 679-5411-81','Аллергия',2);
+INSERT INTO patient VALUES (3003,'User3','Female','2001-05-12','+7 (911) 679-qqq54-72','Грипп',1);
+INSERT INTO patient VALUES (3004,'User4','Female','2001-01-22','+7 (911) 679-5www4-82','Кашель',5);
+INSERT INTO patient VALUES (3005,'User2','Male','2001-05-22','+7 (911) 679-54-ee81','Аллергия',2);
+INSERT INTO patient VALUES (3006,'User3','Female','2001-05-12','+7 (911) 679-5rrr4-72','Грипп',1);
+INSERT INTO patient VALUES (3007,'User4','Female','2001-01-22','+7 (911) 679-5ttt4-82','Кашель',5);
+INSERT INTO patient VALUES (3008,'User2','Male','2001-05-22','+7 (911) 679-5yyy4-81','Аллергия',2);
+INSERT INTO patient VALUES (3009,'User3','Female','2001-05-12','+7 (911) 679-uuu54-72','Грипп',1);
+INSERT INTO patient VALUES (3010,'User4','Female','2001-01-22','+7 (911) 679-iii54-82','Кашель',5);
+INSERT INTO patient VALUES (3011,'User2','Male','2001-05-22','+7 (911) 679-oo54-81','Аллергия',2);
+INSERT INTO patient VALUES (3012,'User3','Female','2001-05-12','+7 (911) 679ppp-54-72','Грипп',1);
+INSERT INTO patient VALUES (3013,'User4','Female','2001-01-22','+7 (911) 679aaa-54-82','Кашель',5);
+INSERT INTO patient VALUES (3014,'User2','Male','2001-05-22','+7 (911) 679sss-d54-81','Аллергия',2);
+INSERT INTO patient VALUES (3015,'User3','Female','2001-05-12','+7 (911) 679dd-54-72','Грипп',1);
+INSERT INTO patient VALUES (3016,'User4','Female','2001-01-22','+7 (911) 679-5fff4-82','Кашель',5);
+INSERT INTO patient VALUES (3017,'User2','Male','2001-05-22','+7 (911) 679-54-8ggg1','Аллергия',2);
+INSERT INTO patient VALUES (3018,'User3','Female','2001-05-12','+7 (911) 679-54hhh-72','Грипп',1);
+INSERT INTO patient VALUES (3019,'User4','Female','2001-01-22','+7 (911) 679-jjj54-82','Кашель',5);
+INSERT INTO patient VALUES (3020,'User2','Male','2001-05-22','+7 (911) 679-kkk54-81','Аллергия',2);
+INSERT INTO patient VALUES (3021,'User3','Female','2001-05-12','+7 (911) 679-lll54-72','Грипп',1);
+INSERT INTO patient VALUES (3022,'User4','Female','2001-01-22','+7 (911) 67;;;9-54-82','Кашель',5);
+INSERT INTO patient VALUES (3023,'User2','Male','2001-05-22','+7 (911) 679-54..-81','Аллергия',2);
+INSERT INTO patient VALUES (3024,'User3','Female','2001-05-12','+7 (911) 679...-54-72','Грипп',1);
+INSERT INTO patient VALUES (3025,'User4','Female','2001-01-22','+7 (911) 679-,,,54-82','Кашель',5);
+INSERT INTO patient VALUES (3026,'User2','Male','2001-05-22','+7 (911) 679-54mmm-81','Аллергия',2);
+INSERT INTO patient VALUES (3027,'User3','Female','2001-05-12','+7 (911) 679nnn-54-72','Грипп',1);
+INSERT INTO patient VALUES (3028,'User4','Female','2001-01-22','+7 (911) 679bbb-54-82','Кашель',5);
+
+--
+-- Temporary view structure for view `patient_orders`
+--
+
+DROP TABLE IF EXISTS patient_orders;
+/*!50001 DROP VIEW IF EXISTS patient_orders*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `patient_orders` AS SELECT 
+ 1 AS FIO,
+ 1 AS Sex,
+ 1 AS phone,
+ 1 AS Amount,
+ 1 AS name,
+ 1 AS provider*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `pharmacy`
+--
+
+DROP TABLE IF EXISTS pharmacy;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE pharmacy (
+  idpharmacy int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) NOT NULL,
+  Phone varchar(45) NOT NULL,
+  address_idadress int NOT NULL,
+  PRIMARY KEY (idpharmacy),
+  KEY fk_pharmacy_address1_idx (address_idadress),
+  CONSTRAINT fk_pharmacy_address1 FOREIGN KEY (address_idadress) REFERENCES address (idadress)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pharmacy`
+--
+
+INSERT INTO pharmacy VALUES (1,'Вита','+78007550003',14);
+INSERT INTO pharmacy VALUES (2,'Волгофарм','+78442384837',15);
+INSERT INTO pharmacy VALUES (3,'Вита','+78007550003',16);
+INSERT INTO pharmacy VALUES (4,'Калинка','+78442380056',17);
+INSERT INTO pharmacy VALUES (5,'Волгофарм','+78442943538',18);
+INSERT INTO pharmacy VALUES (6,'Вита','+78007550003',19);
+INSERT INTO pharmacy VALUES (7,'Rigla','8(909)398-21-23',3);
+INSERT INTO pharmacy VALUES (8,'Rigla','8(909)398-21-23',20);
+INSERT INTO pharmacy VALUES (9,'Волгофарм','8(909)400-40-30',21);
+INSERT INTO pharmacy VALUES (10,'Аптека №12','8(8442)98-21-03',22);
+INSERT INTO pharmacy VALUES (11,'Rigla','8(909)398-21-23',3);
+INSERT INTO pharmacy VALUES (12,'Rigla','8(909)398-21-23',20);
+INSERT INTO pharmacy VALUES (13,'Волгофарм','8(909)400-40-30',21);
+INSERT INTO pharmacy VALUES (14,'Аптека №12','8(8442)98-21-03',22);
+INSERT INTO pharmacy VALUES (15,'Гуливер','+78442654338',21);
+INSERT INTO pharmacy VALUES (16,'Rigla','8(909)398-21-23',3);
+INSERT INTO pharmacy VALUES (17,'Rigla','8(909)398-21-23',20);
+INSERT INTO pharmacy VALUES (18,'Волгофарм','8(909)400-40-30',21);
+INSERT INTO pharmacy VALUES (19,'Аптека №12','8(8442)98-21-03',22);
+INSERT INTO pharmacy VALUES (20,'Rigla','8(909)398-21-23',3);
+INSERT INTO pharmacy VALUES (21,'Rigla','8(909)398-21-23',20);
+INSERT INTO pharmacy VALUES (22,'Волгофарм','8(909)400-40-30',21);
+INSERT INTO pharmacy VALUES (23,'Аптека №12','8(8442)98-21-03',22);
+INSERT INTO pharmacy VALUES (24,'Rigla','8(909)398-21-23',3);
+INSERT INTO pharmacy VALUES (25,'Rigla','8(909)398-21-23',20);
+INSERT INTO pharmacy VALUES (26,'Волгофарм','8(909)400-40-30',21);
+INSERT INTO pharmacy VALUES (27,'Аптека №12','8(8442)98-21-03',22);
+
+--
+-- Table structure for table `prescription`
+--
+
+DROP TABLE IF EXISTS prescription;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE prescription (
+  idprescription int NOT NULL AUTO_INCREMENT,
+  `Discharge date` date NOT NULL COMMENT 'Дата выписки рецепта',
+  `Expiration date` date NOT NULL COMMENT 'Дата окончания действия рецепта',
+  doctor_idDoctor int NOT NULL,
+  patient_idPatient int NOT NULL,
+  medicine_idmedicine1 int NOT NULL,
+  PRIMARY KEY (idprescription),
+  KEY fk_prescription_doctor1_idx (doctor_idDoctor),
+  KEY fk_prescription_patient1_idx (patient_idPatient),
+  KEY fk_prescription_medicine2_idx (medicine_idmedicine1),
+  CONSTRAINT fk_prescription_doctor1 FOREIGN KEY (doctor_idDoctor) REFERENCES doctor (idDoctor),
+  CONSTRAINT fk_prescription_medicine2 FOREIGN KEY (medicine_idmedicine1) REFERENCES medicine (idmedicine),
+  CONSTRAINT fk_prescription_patient1 FOREIGN KEY (patient_idPatient) REFERENCES patient (idPatient)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Рецепт на лекарство ';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `prescription`
+--
+
+INSERT INTO prescription VALUES (1,'2020-06-21','2020-12-21',1,1,6);
+INSERT INTO prescription VALUES (2,'2020-09-03','2020-11-03',2,2,6);
+INSERT INTO prescription VALUES (3,'2020-06-21','2020-12-21',3,3,2);
+INSERT INTO prescription VALUES (4,'2020-05-04','2020-12-04',4,4,1);
+INSERT INTO prescription VALUES (5,'2020-05-01','2020-08-01',5,5,2);
+INSERT INTO prescription VALUES (6,'2020-07-12','2021-02-12',6,6,7);
+INSERT INTO prescription VALUES (7,'2020-08-21','2020-12-21',1,7,8);
+INSERT INTO prescription VALUES (8,'2020-08-18','2020-12-18',1,8,9);
+INSERT INTO prescription VALUES (9,'2020-03-14','2020-12-14',2,9,10);
+INSERT INTO prescription VALUES (10,'2020-09-19','2021-09-19',3,10,11);
+INSERT INTO prescription VALUES (11,'2020-09-29','2020-12-29',9,11,12);
+INSERT INTO prescription VALUES (12,'2020-06-02','2020-09-02',11,12,4);
+INSERT INTO prescription VALUES (13,'2020-06-02','2020-09-02',11,13,1);
+INSERT INTO prescription VALUES (14,'2020-08-18','2020-12-14',11,14,2);
+
+--
+-- Table structure for table `reviews`
+--
+
+DROP TABLE IF EXISTS reviews;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE reviews (
+  idreviews int NOT NULL AUTO_INCREMENT,
+  `Quality of service` enum('Excellent','Good','Satisfactory','Terrible') NOT NULL COMMENT 'качество обслуживания',
+  `Reasonable price` enum('Excellent','Good','Satisfactory','Terrible') NOT NULL,
+  `Delivery speed` enum('Not use','Excellent','Good','Satisfactory','Terrible') NOT NULL,
+  `Delivery quality` enum('Not use','Excellent','Good','Satisfactory','Terrible') NOT NULL,
+  Wishes varchar(45) DEFAULT NULL,
+  patient_idPatient int NOT NULL,
+  PRIMARY KEY (idreviews),
+  KEY fk_reviews_patient1_idx (patient_idPatient),
+  CONSTRAINT fk_reviews_patient1 FOREIGN KEY (patient_idPatient) REFERENCES patient (idPatient)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO reviews VALUES (1,'Good','Excellent','Excellent','Terrible','Больше информации о товаре',2);
+INSERT INTO reviews VALUES (2,'Good','Good','Good','Good',NULL,4);
+INSERT INTO reviews VALUES (3,'Terrible','Excellent','Terrible','Good',NULL,5);
+INSERT INTO reviews VALUES (4,'Good','Good','Good','Good','Улучшить систему оповещения',1);
+INSERT INTO reviews VALUES (5,'Good','Satisfactory','Good','Satisfactory',NULL,3);
+INSERT INTO reviews VALUES (6,'Excellent','Excellent','Good','Good',NULL,8);
+INSERT INTO reviews VALUES (7,'Good','Terrible','Not use','Not use','Всё ок',11);
+
+--
+-- Table structure for table `stock`
+--
+
+DROP TABLE IF EXISTS stock;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE stock (
+  idstock int NOT NULL AUTO_INCREMENT,
+  Amount int NOT NULL,
+  `Update date` date DEFAULT NULL,
+  pharmacy_idpharmacy int DEFAULT NULL,
+  storehouse_idstorehouse int DEFAULT NULL,
+  medicine_idmedicine int NOT NULL,
+  PRIMARY KEY (idstock),
+  KEY fk_stock_pharmacy1_idx (pharmacy_idpharmacy),
+  KEY fk_stock_storehouse1_idx (storehouse_idstorehouse),
+  KEY fk_stock_medicine1_idx (medicine_idmedicine),
+  CONSTRAINT fk_stock_medicine1 FOREIGN KEY (medicine_idmedicine) REFERENCES medicine (idmedicine),
+  CONSTRAINT fk_stock_pharmacy1 FOREIGN KEY (pharmacy_idpharmacy) REFERENCES pharmacy (idpharmacy),
+  CONSTRAINT fk_stock_storehouse1 FOREIGN KEY (storehouse_idstorehouse) REFERENCES storehouse (idstorehouse)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Запас препаратов на складе и в аптеке';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stock`
+--
+
+INSERT INTO stock VALUES (1,100,'2020-02-22',1,NULL,12);
+INSERT INTO stock VALUES (2,1200,'2020-01-25',NULL,1,12);
+INSERT INTO stock VALUES (3,240,'2020-06-23',2,NULL,10);
+INSERT INTO stock VALUES (4,3000,'2020-01-12',NULL,3,9);
+INSERT INTO stock VALUES (5,510,'2020-03-09',3,NULL,11);
+INSERT INTO stock VALUES (6,230,'2020-01-27',4,NULL,8);
+INSERT INTO stock VALUES (7,200,'2020-01-30',5,NULL,7);
+INSERT INTO stock VALUES (8,110,'2020-05-21',6,NULL,6);
+INSERT INTO stock VALUES (9,110,'2020-05-17',2,NULL,5);
+INSERT INTO stock VALUES (10,100,'2020-01-23',1,NULL,4);
+INSERT INTO stock VALUES (11,100,'2020-07-23',3,NULL,3);
+INSERT INTO stock VALUES (12,700,'2020-07-23',NULL,6,2);
+INSERT INTO stock VALUES (13,150,'2020-10-23',NULL,4,1);
+INSERT INTO stock VALUES (14,110,'2020-10-23',NULL,2,15);
+INSERT INTO stock VALUES (15,100,'2020-03-25',7,NULL,12);
+INSERT INTO stock VALUES (16,200,'2020-11-15',NULL,3,7);
+INSERT INTO stock VALUES (17,106,'2020-09-21',2,NULL,2);
+INSERT INTO stock VALUES (18,100,'2020-03-25',7,NULL,12);
+INSERT INTO stock VALUES (19,200,'2020-11-15',NULL,3,7);
+INSERT INTO stock VALUES (20,106,'2020-09-21',2,NULL,2);
+INSERT INTO stock VALUES (21,100,'2020-03-25',7,NULL,12);
+INSERT INTO stock VALUES (22,200,'2020-11-15',NULL,3,4);
+INSERT INTO stock VALUES (23,106,'2020-09-21',2,NULL,2);
+INSERT INTO stock VALUES (24,1100,'2020-09-21',NULL,2,1);
+INSERT INTO stock VALUES (25,2500,'2020-09-21',NULL,4,2);
+
+--
+-- Table structure for table `storehouse`
+--
+
+DROP TABLE IF EXISTS storehouse;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE storehouse (
+  idstorehouse int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) NOT NULL,
+  `type` enum('main','further') NOT NULL COMMENT 'Main - основной склад доставка до любой аптеки один день\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\nFuther - дополнительный склад время доставки до любой аптеки 2 дня ',
+  `Delivery Time` tinyint unsigned NOT NULL,
+  PRIMARY KEY (idstorehouse)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Склад';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `storehouse`
+--
+
+INSERT INTO storehouse VALUES (1,'Альтаир','main',1);
+INSERT INTO storehouse VALUES (2,'Альтаир','further',3);
+INSERT INTO storehouse VALUES (3,'Склад Санфарм','further',4);
+INSERT INTO storehouse VALUES (4,'Склад Санфарм','main',2);
+INSERT INTO storehouse VALUES (5,'Склад Санфарм','further',3);
+INSERT INTO storehouse VALUES (6,'Склад 1','main',2);
+INSERT INTO storehouse VALUES (7,'Склад 2','main',2);
+INSERT INTO storehouse VALUES (8,'Склад 3','main',4);
+INSERT INTO storehouse VALUES (9,'Склад 4','main',1);
+INSERT INTO storehouse VALUES (10,'Склад 5','main',3);
+
+--
+-- Temporary view structure for view `sunpraz_medicine`
+--
+
+DROP TABLE IF EXISTS sunpraz_medicine;
+/*!50001 DROP VIEW IF EXISTS sunpraz_medicine*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `sunpraz_medicine` AS SELECT 
+ 1 AS idmedicine,
+ 1 AS Type,
+ 1 AS `Way of using`,
+ 1 AS Name,
+ 1 AS Provider,
+ 1 AS `Dispensing method`,
+ 1 AS Price,
+ 1 AS `Critikal limits`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `types_prices`
+--
+
+DROP TABLE IF EXISTS types_prices;
+/*!50001 DROP VIEW IF EXISTS types_prices*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `types_prices` AS SELECT 
+ 1 AS `Highest price`,
+ 1 AS `Lowest price`,
+ 1 AS `Average price`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping routines for database 'apteka'
+--
+/*!50003 DROP FUNCTION IF EXISTS distanceToOffice */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=root@localhost FUNCTION distanceToOffice(f_FIO varchar(45) ) RETURNS varchar(30) CHARSET utf8mb4
+    DETERMINISTIC
+Begin
+	declare result varchar(30);
+    declare f_city varchar(30);
+    
+    set f_city = (  select city from  address
+					join patient on idadress = address_idadress
+					where FIO = f_FIO  );
+	case f_city
+		when 'Волгоград' then 
+        set result = 'Близкое расположение';
+        when 'Волжский' then
+        set result = 'Среднее расположение';
+		else
+        set result = 'Дальнее расположение';
+	end case;
+return result;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS IsAdult */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=root@localhost FUNCTION IsAdult(f_FIO varchar(45) ) RETURNS varchar(45) CHARSET utf8mb4
+    DETERMINISTIC
+Begin
+	declare result varchar(30);
+    declare f_year smallint;
+    declare yearOfBirth smallint;
+    
+    set yearOfBirth = (select year(`Date of Birth`) from patient where FIO = f_FIO);
+    set f_year = year(curdate());
+		if (f_year - yearOfBirth > 17) then
+			set result = 'Совершеннолетний пациент';
+		else
+			set result = 'Несовершеннолетний пациент';
+	end if;
+return result;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS sp_getAllPatient */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=root@localhost PROCEDURE sp_getAllPatient()
+BEGIN
+	select * from patient;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS sp_lowestMedicine */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=root@localhost PROCEDURE sp_lowestMedicine()
+BEGIN
+	select `name`, provider, Amount
+    from medicine, stock
+    where stock.Amount = (select min(amount) from stock) 
+    and  medicine.idmedicine = stock.medicine_idmedicine;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS sp_patientByFIO */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=root@localhost PROCEDURE sp_patientByFIO(in p_Fio varchar(45) )
+BEGIN
+	select * from patient
+    where FIO = p_Fio;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS sp_providerPopularity */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=root@localhost PROCEDURE sp_providerPopularity(in p_provider varchar(45), out p_status varchar(45) )
+BEGIN
+	declare summ int;
+    set summ = (select COALESCE (sum(amount)) from patient_orders where patient_orders.provider = p_provider);
+    if summ > 500 then
+		set p_status = 'Very popular provider';
+    elseif summ between 100 and 500 then
+		set p_status = 'popular provider';
+	else
+		set p_status = 'unpopular provider';
+    END if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Final view structure for view `cifran_medicine`
+--
+
+/*!50001 DROP VIEW IF EXISTS cifran_medicine*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=MERGE */
+/*!50013 DEFINER=root@localhost SQL SECURITY DEFINER */
+/*!50001 VIEW cifran_medicine AS select medicine.idmedicine AS idmedicine,medicine.`Type` AS `Type`,medicine.`Way of using` AS `Way of using`,medicine.`Name` AS `Name`,medicine.Provider AS Provider,medicine.`Dispensing method` AS `Dispensing method`,medicine.Price AS Price,medicine.`Critikal limits` AS `Critikal limits` from medicine where (medicine.Provider = 'Cifran') order by medicine.Price */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `dazolic_medicine`
+--
+
+/*!50001 DROP VIEW IF EXISTS dazolic_medicine*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=root@localhost SQL SECURITY DEFINER */
+/*!50001 VIEW dazolic_medicine AS select medicine.idmedicine AS idmedicine,medicine.`Type` AS `Type`,medicine.`Way of using` AS `Way of using`,medicine.`Name` AS `Name`,medicine.Provider AS Provider,medicine.`Dispensing method` AS `Dispensing method`,medicine.Price AS Price,medicine.`Critikal limits` AS `Critikal limits` from medicine where (medicine.Provider = 'Dazolic') order by medicine.Price */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `patient_orders`
+--
+
+/*!50001 DROP VIEW IF EXISTS patient_orders*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=root@localhost SQL SECURITY DEFINER */
+/*!50001 VIEW patient_orders AS select patient.FIO AS FIO,patient.Sex AS Sex,patient.Phone AS phone,`order`.Amount AS Amount,medicine.`Name` AS `name`,medicine.Provider AS provider from (((patient join `order` on((patient.idPatient = `order`.patient_idPatient))) join order_has_medicine on((`order`.idorder = order_has_medicine.order_idorder))) join medicine on((order_has_medicine.medicine_idmedicine = medicine.idmedicine))) order by patient.FIO */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `sunpraz_medicine`
+--
+
+/*!50001 DROP VIEW IF EXISTS sunpraz_medicine*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=root@localhost SQL SECURITY DEFINER */
+/*!50001 VIEW sunpraz_medicine AS select medicine.idmedicine AS idmedicine,medicine.`Type` AS `Type`,medicine.`Way of using` AS `Way of using`,medicine.`Name` AS `Name`,medicine.Provider AS Provider,medicine.`Dispensing method` AS `Dispensing method`,medicine.Price AS Price,medicine.`Critikal limits` AS `Critikal limits` from medicine where (medicine.Provider = 'sunpraz') order by medicine.Price */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `types_prices`
+--
+
+/*!50001 DROP VIEW IF EXISTS types_prices*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=TEMPTABLE */
+/*!50013 DEFINER=root@localhost SQL SECURITY DEFINER */
+/*!50001 VIEW types_prices AS select max(medicine.Price) AS `Highest price`,min(medicine.Price) AS `Lowest price`,avg(medicine.Price) AS `Average price` from medicine */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed
