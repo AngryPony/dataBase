@@ -7,6 +7,8 @@
     <link href="/bd/assets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="no-gutters">
@@ -29,7 +31,7 @@
                         <li class="nav-item"><a class="nav-link" href="/bd/reviews">Отзывы</a></li>
                         <li class="nav-item"><a class="nav-link" href="/bd/stocks">Запасы</a></li>
                         <li class="nav-item"><a class="nav-link" href="/bd/storehouses">Склады</a></li>
-
+                        <li class="nav-item"><a class="nav-link" href="/bd/statistic">Статистика</a></li>
 
 
                     </ul>

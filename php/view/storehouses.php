@@ -10,7 +10,7 @@ $type_ru = array('main'=>"Главный", 'further'=>"Дальний");
     <tr>
         <th scope="col">Название</th>
         <th scope="col1">Тип</th>
-        <th scope="col2">Время доставк</th>
+        <th scope="col2">Время доставки</th>
         <th scope="col3" width="120px"><a href="/bd/add/storehouse" class="btn btn-success">Добавить</a></th>
     </tr>
     </thead>

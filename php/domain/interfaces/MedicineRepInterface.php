@@ -8,4 +8,5 @@ interface MedicineRepInterface
     public function create(Medicine $obj) : void;
     public function update(Medicine $obj) : void;
     public function delete(int $id) : void;
+    public function getMostPopular(int $count) : array;
 }

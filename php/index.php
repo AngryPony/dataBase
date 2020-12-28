@@ -47,6 +47,8 @@ if(count($path) == 3){
         header("Location: ".$_SERVER['HTTP_REFERER']);
     }else if($path[3] == "order"){
         $rep = new OrderRep($db);
+        $rep->removeMedicines($_GET["id"]);
+        if(isset($_GET['medicine_id']))foreach($_GET['medicine_id'] as $med_id)$rep->addMedicine($_GET["id"],$med_id);
         $rep->update(Order::fromAssocArray($_GET));
         header("Location: ".$_SERVER['HTTP_REFERER']);
     }else if($path[3] == "order_type"){
@@ -132,7 +134,8 @@ if(count($path) == 3){
         header("Location: /bd/medicines");
     }else if($path[3] == "order"){
         $rep = new OrderRep($db);
-        $rep->create(Order::fromAssocArray($_GET));
+        $id = $rep->create(Order::fromAssocArray($_GET));
+        if(isset($_GET['medicine_id']))foreach($_GET['medicine_id'] as $med_id)$rep->addMedicine($id,$med_id);
         header("Location: /bd/orders");
     }else if($path[3] == "order_type"){
         $rep = new OrderTypeRep($db);

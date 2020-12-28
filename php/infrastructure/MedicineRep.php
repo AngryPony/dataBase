@@ -43,4 +43,18 @@ class MedicineRep implements MedicineRepInterface
     {
         $this->db->writeQuery("DELETE FROM medicine WHERE id=?","i",$id);
     }
+
+    public function getMostPopular(int $count) : array{
+        $arr = array();
+        $res = $this->db->readQuery("select medicine.*
+    from `order`, medicine
+    where pharmacy_id = medicine.id
+    group by pharmacy_id
+    order by count(*) desc
+		limit ?;","i",$count);
+        foreach ($res as $row) {
+            array_push($arr,Medicine::fromAssocArray($row));
+        }
+        return $arr;
+    }
 }

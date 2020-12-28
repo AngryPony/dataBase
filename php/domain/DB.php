@@ -28,6 +28,9 @@ class DB{
     public function close() : void{
         $this->mysqli->close();
     }
+    public function insert_id(){
+        return $this->mysqli->insert_id;
+    }
 
 }
 
